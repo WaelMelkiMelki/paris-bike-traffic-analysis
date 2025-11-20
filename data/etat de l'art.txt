@@ -1,0 +1,29 @@
+C'est **presque ça**, mais il y a une petite nuance importante à corriger dans la deuxième partie pour que votre résumé soit techniquement exact.
+
+Voici la correction précise de votre flux de travail :
+
+### 1. Partie "Compréhension" (Clustering / K-Means)
+*   **Input :** Les **Profils Temporels** (La forme des courbes : est-ce que ça monte le matin ? le weekend ?).
+*   **Algo :** K-Means.
+*   **Output :** **Une Étiquette** pour chaque rue (Vélotaf / Mixte / Loisirs).
+*   *But :* Comprendre le **comportement** (Le "Pourquoi").
+
+### 2. Partie "Prédiction" (Random Forest)
+*   **Input :** Le **Temps** (Heure, Mois) + L'**Identité précise du compteur** (Son nom codé, pas juste son étiquette "Vélotaf").
+*   **Algo :** Random Forest.
+*   **Output :** Le **Volume Prédit** (Combien de vélos ?).
+*   *But :* Prouver la **régularité** (Le "Combien").
+
+---
+
+### Votre résumé corrigé (à mettre dans votre rapport) :
+
+**Étape 1 (Non-Supervisée) :**
+`Volume par Heure` + `K-Means` ----> **Classification des Lieux** (Typologie Vélotaf vs Loisirs).
+> *On a découvert qu'il existe 3 profils de rues différents.*
+
+**Étape 2 (Supervisée) :**
+`Temps` + `Lieu Précis` + `Random Forest` ----> **Prédiction du Volume**.
+> *On a validé que le trafic est prévisible à 87% si on connaît l'heure et l'endroit.*
+
+C'est la combinaison des deux qui fait la force de votre étude !

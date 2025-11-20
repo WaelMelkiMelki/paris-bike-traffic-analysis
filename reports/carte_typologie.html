@@ -1,0 +1,3313 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3b8e87f51b35a143877e0a6503c18532 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+     <div style="position: fixed; 
+     bottom: 50px; left: 50px; width: 150px; height: 110px; 
+     border:2px solid grey; z-index:9999; font-size:14px;
+     background-color:white; opacity:0.9; padding: 10px;">
+     <b>Légende</b><br>
+     <i style="background:#d63031;width:10px;height:10px;display:inline-block;border-radius:50%;"></i> Vélotaf<br>
+     <i style="background:#0984e3;width:10px;height:10px;display:inline-block;border-radius:50%;"></i> Mixte<br>
+     <i style="background:#00b894;width:10px;height:10px;display:inline-block;border-radius:50%;"></i> Loisirs
+     </div>
+     
+    
+            <div class="folium-map" id="map_3b8e87f51b35a143877e0a6503c18532" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3b8e87f51b35a143877e0a6503c18532 = L.map(
+                "map_3b8e87f51b35a143877e0a6503c18532",
+                {
+                    center: [48.8566, 2.3522],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5a410a882ee0cfb5bda992968652997f = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_5a410a882ee0cfb5bda992968652997f.addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+            var circle_marker_d1f49adb63d3d8ad80871728b0f4e87e = L.circleMarker(
+                [48.8748, 2.2924],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_1a59f0fad281d4f57f36a099b16837cb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e0f24a232ad622c91719b175c3ab4fd9 = $(`<div id="html_e0f24a232ad622c91719b175c3ab4fd9" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>10 avenue de la Grande Armée SE-NO</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.70<br>         <br>         <i>Moyenne Semaine : 52 vélos/h</i><br>         <i>Moyenne Weekend : 37 vélos/h</i>     </div>     </div>`)[0];
+                popup_1a59f0fad281d4f57f36a099b16837cb.setContent(html_e0f24a232ad622c91719b175c3ab4fd9);
+            
+        
+
+        circle_marker_d1f49adb63d3d8ad80871728b0f4e87e.bindPopup(popup_1a59f0fad281d4f57f36a099b16837cb)
+        ;
+
+        
+    
+    
+            circle_marker_d1f49adb63d3d8ad80871728b0f4e87e.bindTooltip(
+                `<div>
+                     10 avenue de la Grande Armée SE-NO (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7f5bfa4e4a391c103839d62e7cfd0263 = L.circleMarker(
+                [48.83082, 2.35317],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_2e9d7bcf062e2840500153d54ac79500 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_14551f710e34b18bf5afbb2e326b3266 = $(`<div id="html_14551f710e34b18bf5afbb2e326b3266" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>10 boulevard Auguste Blanqui NE-SO</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.62<br>         <br>         <i>Moyenne Semaine : 50 vélos/h</i><br>         <i>Moyenne Weekend : 31 vélos/h</i>     </div>     </div>`)[0];
+                popup_2e9d7bcf062e2840500153d54ac79500.setContent(html_14551f710e34b18bf5afbb2e326b3266);
+            
+        
+
+        circle_marker_7f5bfa4e4a391c103839d62e7cfd0263.bindPopup(popup_2e9d7bcf062e2840500153d54ac79500)
+        ;
+
+        
+    
+    
+            circle_marker_7f5bfa4e4a391c103839d62e7cfd0263.bindTooltip(
+                `<div>
+                     10 boulevard Auguste Blanqui NE-SO (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cdd865d9a163b9e18c0664c2c4c7ac4a = L.circleMarker(
+                [48.87769, 2.35475],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_0ab6bd2f8b2341424a4dacb4d64eb458 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d6d37be0c42e4b72f82a887497c339ab = $(`<div id="html_d6d37be0c42e4b72f82a887497c339ab" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>102 boulevard de Magenta SE-NO</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.82<br>         <br>         <i>Moyenne Semaine : 241 vélos/h</i><br>         <i>Moyenne Weekend : 198 vélos/h</i>     </div>     </div>`)[0];
+                popup_0ab6bd2f8b2341424a4dacb4d64eb458.setContent(html_d6d37be0c42e4b72f82a887497c339ab);
+            
+        
+
+        circle_marker_cdd865d9a163b9e18c0664c2c4c7ac4a.bindPopup(popup_0ab6bd2f8b2341424a4dacb4d64eb458)
+        ;
+
+        
+    
+    
+            circle_marker_cdd865d9a163b9e18c0664c2c4c7ac4a.bindTooltip(
+                `<div>
+                     102 boulevard de Magenta SE-NO (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6be2717cc982e8ad8bb193de2634946e = L.circleMarker(
+                [48.84222, 2.30102],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_3cb0e72939ee00faddb3469678379988 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1614d0e25961f41fa1fb53d105f4179f = $(`<div id="html_1614d0e25961f41fa1fb53d105f4179f" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>129 rue Lecourbe SO-NE</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.60<br>         <br>         <i>Moyenne Semaine : 61 vélos/h</i><br>         <i>Moyenne Weekend : 37 vélos/h</i>     </div>     </div>`)[0];
+                popup_3cb0e72939ee00faddb3469678379988.setContent(html_1614d0e25961f41fa1fb53d105f4179f);
+            
+        
+
+        circle_marker_6be2717cc982e8ad8bb193de2634946e.bindPopup(popup_3cb0e72939ee00faddb3469678379988)
+        ;
+
+        
+    
+    
+            circle_marker_6be2717cc982e8ad8bb193de2634946e.bindTooltip(
+                `<div>
+                     129 rue Lecourbe SO-NE (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8b6205a9fbe12a45d06f7c4898233d5a = L.circleMarker(
+                [48.84209, 2.30115],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_8907346341b4e8eb9e74034fc5e83200 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4a40e90093b1504eaa6f88fbffc10360 = $(`<div id="html_4a40e90093b1504eaa6f88fbffc10360" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>132 rue Lecourbe NE-SO</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.68<br>         <br>         <i>Moyenne Semaine : 71 vélos/h</i><br>         <i>Moyenne Weekend : 48 vélos/h</i>     </div>     </div>`)[0];
+                popup_8907346341b4e8eb9e74034fc5e83200.setContent(html_4a40e90093b1504eaa6f88fbffc10360);
+            
+        
+
+        circle_marker_8b6205a9fbe12a45d06f7c4898233d5a.bindPopup(popup_8907346341b4e8eb9e74034fc5e83200)
+        ;
+
+        
+    
+    
+            circle_marker_8b6205a9fbe12a45d06f7c4898233d5a.bindTooltip(
+                `<div>
+                     132 rue Lecourbe NE-SO (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e35d59ea94a0282c5e23adde10c2ced9 = L.circleMarker(
+                [48.843435, 2.383378],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_57c6046355b50b1f325e17b12eeeb4f1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0bba14785dac167c4b8cd13e08557ad8 = $(`<div id="html_0bba14785dac167c4b8cd13e08557ad8" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>135 avenue Daumesnil SE-NO</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.82<br>         <br>         <i>Moyenne Semaine : 71 vélos/h</i><br>         <i>Moyenne Weekend : 59 vélos/h</i>     </div>     </div>`)[0];
+                popup_57c6046355b50b1f325e17b12eeeb4f1.setContent(html_0bba14785dac167c4b8cd13e08557ad8);
+            
+        
+
+        circle_marker_e35d59ea94a0282c5e23adde10c2ced9.bindPopup(popup_57c6046355b50b1f325e17b12eeeb4f1)
+        ;
+
+        
+    
+    
+            circle_marker_e35d59ea94a0282c5e23adde10c2ced9.bindTooltip(
+                `<div>
+                     135 avenue Daumesnil SE-NO (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5c6ceb053cb8faeb5a06457006305d1a = L.circleMarker(
+                [48.82009, 2.3588],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_ef9f2ddfb95e45bceac8e015286bb7f5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9269da610da4542d52e8012a10bdaf24 = $(`<div id="html_9269da610da4542d52e8012a10bdaf24" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>147 avenue d'Italie 147 avenue d'Italie [Bike]</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.70<br>         <br>         <i>Moyenne Semaine : 60 vélos/h</i><br>         <i>Moyenne Weekend : 42 vélos/h</i>     </div>     </div>`)[0];
+                popup_ef9f2ddfb95e45bceac8e015286bb7f5.setContent(html_9269da610da4542d52e8012a10bdaf24);
+            
+        
+
+        circle_marker_5c6ceb053cb8faeb5a06457006305d1a.bindPopup(popup_ef9f2ddfb95e45bceac8e015286bb7f5)
+        ;
+
+        
+    
+    
+            circle_marker_5c6ceb053cb8faeb5a06457006305d1a.bindTooltip(
+                `<div>
+                     147 avenue d'Italie 147 avenue d'Italie [Bike] (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c3133e5c6c5cd4276aa6450bcce973cb = L.circleMarker(
+                [48.82009, 2.3588],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_61d92c09dc8f4a142c135a3127097e7d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3bfe97c13ad679a1d50341f8c09510b6 = $(`<div id="html_3bfe97c13ad679a1d50341f8c09510b6" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>147 avenue d'Italie S-N</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.70<br>         <br>         <i>Moyenne Semaine : 56 vélos/h</i><br>         <i>Moyenne Weekend : 40 vélos/h</i>     </div>     </div>`)[0];
+                popup_61d92c09dc8f4a142c135a3127097e7d.setContent(html_3bfe97c13ad679a1d50341f8c09510b6);
+            
+        
+
+        circle_marker_c3133e5c6c5cd4276aa6450bcce973cb.bindPopup(popup_61d92c09dc8f4a142c135a3127097e7d)
+        ;
+
+        
+    
+    
+            circle_marker_c3133e5c6c5cd4276aa6450bcce973cb.bindTooltip(
+                `<div>
+                     147 avenue d'Italie S-N (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fd1e460c80bd440bf72e93daffedbfa5 = L.circleMarker(
+                [48.84017, 2.33438],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_475bfc8786c9e100b11327e33fc508e6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4845dabf9719f89023ae47b0a4ddf6f2 = $(`<div id="html_4845dabf9719f89023ae47b0a4ddf6f2" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>152 boulevard du Montparnasse E-O</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.61<br>         <br>         <i>Moyenne Semaine : 65 vélos/h</i><br>         <i>Moyenne Weekend : 40 vélos/h</i>     </div>     </div>`)[0];
+                popup_475bfc8786c9e100b11327e33fc508e6.setContent(html_4845dabf9719f89023ae47b0a4ddf6f2);
+            
+        
+
+        circle_marker_fd1e460c80bd440bf72e93daffedbfa5.bindPopup(popup_475bfc8786c9e100b11327e33fc508e6)
+        ;
+
+        
+    
+    
+            circle_marker_fd1e460c80bd440bf72e93daffedbfa5.bindTooltip(
+                `<div>
+                     152 boulevard du Montparnasse E-O (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5a628eea1799249b1981eb0efb3814a7 = L.circleMarker(
+                [48.84017, 2.33438],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_ad139d3b52cf3e2c409f28260f8a4b9f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a77f5ba78dc43e037ef2fcbac26c37bd = $(`<div id="html_a77f5ba78dc43e037ef2fcbac26c37bd" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>152 boulevard du Montparnasse O-E</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.57<br>         <br>         <i>Moyenne Semaine : 61 vélos/h</i><br>         <i>Moyenne Weekend : 35 vélos/h</i>     </div>     </div>`)[0];
+                popup_ad139d3b52cf3e2c409f28260f8a4b9f.setContent(html_a77f5ba78dc43e037ef2fcbac26c37bd);
+            
+        
+
+        circle_marker_5a628eea1799249b1981eb0efb3814a7.bindPopup(popup_ad139d3b52cf3e2c409f28260f8a4b9f)
+        ;
+
+        
+    
+    
+            circle_marker_5a628eea1799249b1981eb0efb3814a7.bindTooltip(
+                `<div>
+                     152 boulevard du Montparnasse O-E (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ed4c7d848c7eaa4cdf0bbb7aa8dad2a0 = L.circleMarker(
+                [48.88168, 2.28113],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_4be0b2353eed1d21b73d70392b3e7996 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0f66987680904330b4248b124e380147 = $(`<div id="html_0f66987680904330b4248b124e380147" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>16 avenue de la Porte des Ternes E-O</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.46<br>         <br>         <i>Moyenne Semaine : 30 vélos/h</i><br>         <i>Moyenne Weekend : 14 vélos/h</i>     </div>     </div>`)[0];
+                popup_4be0b2353eed1d21b73d70392b3e7996.setContent(html_0f66987680904330b4248b124e380147);
+            
+        
+
+        circle_marker_ed4c7d848c7eaa4cdf0bbb7aa8dad2a0.bindPopup(popup_4be0b2353eed1d21b73d70392b3e7996)
+        ;
+
+        
+    
+    
+            circle_marker_ed4c7d848c7eaa4cdf0bbb7aa8dad2a0.bindTooltip(
+                `<div>
+                     16 avenue de la Porte des Ternes E-O (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d005a0b58e76a87a3b6f6554d6e88581 = L.circleMarker(
+                [48.824237, 2.321219],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_aa1d417258d653473c0b8b5729ae4dea = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_60a8ec135edb45afa2e038ab371786fe = $(`<div id="html_60a8ec135edb45afa2e038ab371786fe" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>163 boulevard Brune SE-NO</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.53<br>         <br>         <i>Moyenne Semaine : 87 vélos/h</i><br>         <i>Moyenne Weekend : 46 vélos/h</i>     </div>     </div>`)[0];
+                popup_aa1d417258d653473c0b8b5729ae4dea.setContent(html_60a8ec135edb45afa2e038ab371786fe);
+            
+        
+
+        circle_marker_d005a0b58e76a87a3b6f6554d6e88581.bindPopup(popup_aa1d417258d653473c0b8b5729ae4dea)
+        ;
+
+        
+    
+    
+            circle_marker_d005a0b58e76a87a3b6f6554d6e88581.bindTooltip(
+                `<div>
+                     163 boulevard Brune SE-NO (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_09575692a64fa64c0af205faebb75fc7 = L.circleMarker(
+                [48.85372, 2.35702],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_73b684ccfa5f8e56649068557fd949a9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9f4da62afafc463ef0d96b7c7e23a544 = $(`<div id="html_9f4da62afafc463ef0d96b7c7e23a544" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>18 quai de l'Hôtel de Ville NO-SE</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.69<br>         <br>         <i>Moyenne Semaine : 33 vélos/h</i><br>         <i>Moyenne Weekend : 23 vélos/h</i>     </div>     </div>`)[0];
+                popup_73b684ccfa5f8e56649068557fd949a9.setContent(html_9f4da62afafc463ef0d96b7c7e23a544);
+            
+        
+
+        circle_marker_09575692a64fa64c0af205faebb75fc7.bindPopup(popup_73b684ccfa5f8e56649068557fd949a9)
+        ;
+
+        
+    
+    
+            circle_marker_09575692a64fa64c0af205faebb75fc7.bindTooltip(
+                `<div>
+                     18 quai de l'Hôtel de Ville NO-SE (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6e2f1643004c09b6bf684a19673f7e67 = L.circleMarker(
+                [48.85372, 2.35702],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_82fdbe8a9ec9fbe6e8461c30d6fac8a4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7fbc06503e0f6845771399cf00f00446 = $(`<div id="html_7fbc06503e0f6845771399cf00f00446" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>18 quai de l'Hôtel de Ville SE-NO</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.86<br>         <br>         <i>Moyenne Semaine : 47 vélos/h</i><br>         <i>Moyenne Weekend : 41 vélos/h</i>     </div>     </div>`)[0];
+                popup_82fdbe8a9ec9fbe6e8461c30d6fac8a4.setContent(html_7fbc06503e0f6845771399cf00f00446);
+            
+        
+
+        circle_marker_6e2f1643004c09b6bf684a19673f7e67.bindPopup(popup_82fdbe8a9ec9fbe6e8461c30d6fac8a4)
+        ;
+
+        
+    
+    
+            circle_marker_6e2f1643004c09b6bf684a19673f7e67.bindTooltip(
+                `<div>
+                     18 quai de l'Hôtel de Ville SE-NO (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9b6511b099678718a96f9a8c535018a5 = L.circleMarker(
+                [48.82048, 2.35873],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_b00ee3e245f6ee2f9f1e9cb0e0ff8b87 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8d0ff2a6cd5e74b7420c77c7a3690135 = $(`<div id="html_8d0ff2a6cd5e74b7420c77c7a3690135" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>180 avenue d'Italie N-S</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.63<br>         <br>         <i>Moyenne Semaine : 50 vélos/h</i><br>         <i>Moyenne Weekend : 31 vélos/h</i>     </div>     </div>`)[0];
+                popup_b00ee3e245f6ee2f9f1e9cb0e0ff8b87.setContent(html_8d0ff2a6cd5e74b7420c77c7a3690135);
+            
+        
+
+        circle_marker_9b6511b099678718a96f9a8c535018a5.bindPopup(popup_b00ee3e245f6ee2f9f1e9cb0e0ff8b87)
+        ;
+
+        
+    
+    
+            circle_marker_9b6511b099678718a96f9a8c535018a5.bindTooltip(
+                `<div>
+                     180 avenue d'Italie N-S (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bbc76a60fc8aeeda85610bf946fe04cb = L.circleMarker(
+                [48.83074, 2.35373],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_d920b4446b2119fc7457e1352273b500 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_12bd1c934066a5ebd0b180b88ab9e3da = $(`<div id="html_12bd1c934066a5ebd0b180b88ab9e3da" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>21 boulevard Auguste Blanqui SO-NE</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.64<br>         <br>         <i>Moyenne Semaine : 45 vélos/h</i><br>         <i>Moyenne Weekend : 29 vélos/h</i>     </div>     </div>`)[0];
+                popup_d920b4446b2119fc7457e1352273b500.setContent(html_12bd1c934066a5ebd0b180b88ab9e3da);
+            
+        
+
+        circle_marker_bbc76a60fc8aeeda85610bf946fe04cb.bindPopup(popup_d920b4446b2119fc7457e1352273b500)
+        ;
+
+        
+    
+    
+            circle_marker_bbc76a60fc8aeeda85610bf946fe04cb.bindTooltip(
+                `<div>
+                     21 boulevard Auguste Blanqui SO-NE (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3c0541996efc006441339ee3a2d62e3d = L.circleMarker(
+                [48.82029, 2.33936],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_6ba8142e088f412b75cd46767dacb1e4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7d47d879ec7e8726c1cf0a5ccf7693c3 = $(`<div id="html_7d47d879ec7e8726c1cf0a5ccf7693c3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>24 boulevard Jourdan E-O</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.00<br>         <br>         <i>Moyenne Semaine : 1 vélos/h</i><br>         <i>Moyenne Weekend : 0 vélos/h</i>     </div>     </div>`)[0];
+                popup_6ba8142e088f412b75cd46767dacb1e4.setContent(html_7d47d879ec7e8726c1cf0a5ccf7693c3);
+            
+        
+
+        circle_marker_3c0541996efc006441339ee3a2d62e3d.bindPopup(popup_6ba8142e088f412b75cd46767dacb1e4)
+        ;
+
+        
+    
+    
+            circle_marker_3c0541996efc006441339ee3a2d62e3d.bindTooltip(
+                `<div>
+                     24 boulevard Jourdan E-O (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2e8033a0c53249f2874e09251962def3 = L.circleMarker(
+                [48.86179, 2.32014],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_439a10a5149ab5392099451a4ebea790 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_83cf2e0dc84bb235d76c0933f99d7196 = $(`<div id="html_83cf2e0dc84bb235d76c0933f99d7196" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>243 boulevard Saint Germain NO-SE</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.62<br>         <br>         <i>Moyenne Semaine : 96 vélos/h</i><br>         <i>Moyenne Weekend : 59 vélos/h</i>     </div>     </div>`)[0];
+                popup_439a10a5149ab5392099451a4ebea790.setContent(html_83cf2e0dc84bb235d76c0933f99d7196);
+            
+        
+
+        circle_marker_2e8033a0c53249f2874e09251962def3.bindPopup(popup_439a10a5149ab5392099451a4ebea790)
+        ;
+
+        
+    
+    
+            circle_marker_2e8033a0c53249f2874e09251962def3.bindTooltip(
+                `<div>
+                     243 boulevard Saint Germain NO-SE (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fce8de09daea685d02a359f0e7c60e07 = L.circleMarker(
+                [48.84935, 2.41143],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_1d50452793a9937cfb22c73c3bc3d536 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7c9ba54859e9a55ab7680d9e271be239 = $(`<div id="html_7c9ba54859e9a55ab7680d9e271be239" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>27 boulevard Davout N-S</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.63<br>         <br>         <i>Moyenne Semaine : 29 vélos/h</i><br>         <i>Moyenne Weekend : 18 vélos/h</i>     </div>     </div>`)[0];
+                popup_1d50452793a9937cfb22c73c3bc3d536.setContent(html_7c9ba54859e9a55ab7680d9e271be239);
+            
+        
+
+        circle_marker_fce8de09daea685d02a359f0e7c60e07.bindPopup(popup_1d50452793a9937cfb22c73c3bc3d536)
+        ;
+
+        
+    
+    
+            circle_marker_fce8de09daea685d02a359f0e7c60e07.bindTooltip(
+                `<div>
+                     27 boulevard Davout N-S (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8bb9b2a817a9827d884f57c5c9a7bc04 = L.circleMarker(
+                [48.846099, 2.375456],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_f81ed77eaa169f276d07ab4f17219fd1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bb96bf51cad6e239e80dc86e735534fc = $(`<div id="html_bb96bf51cad6e239e80dc86e735534fc" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>27 boulevard Diderot E-O</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.59<br>         <br>         <i>Moyenne Semaine : 65 vélos/h</i><br>         <i>Moyenne Weekend : 38 vélos/h</i>     </div>     </div>`)[0];
+                popup_f81ed77eaa169f276d07ab4f17219fd1.setContent(html_bb96bf51cad6e239e80dc86e735534fc);
+            
+        
+
+        circle_marker_8bb9b2a817a9827d884f57c5c9a7bc04.bindPopup(popup_f81ed77eaa169f276d07ab4f17219fd1)
+        ;
+
+        
+    
+    
+            circle_marker_8bb9b2a817a9827d884f57c5c9a7bc04.bindTooltip(
+                `<div>
+                     27 boulevard Diderot E-O (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9d5efa9d0e46ba98a3fa88253f5e967d = L.circleMarker(
+                [48.85013, 2.35423],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_9f4d916f0d06de7728fc53dbfb3021c3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b8973810f094a0b8086920f2f825f022 = $(`<div id="html_b8973810f094a0b8086920f2f825f022" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>27 quai de la Tournelle NO-SE</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.74<br>         <br>         <i>Moyenne Semaine : 107 vélos/h</i><br>         <i>Moyenne Weekend : 79 vélos/h</i>     </div>     </div>`)[0];
+                popup_9f4d916f0d06de7728fc53dbfb3021c3.setContent(html_b8973810f094a0b8086920f2f825f022);
+            
+        
+
+        circle_marker_9d5efa9d0e46ba98a3fa88253f5e967d.bindPopup(popup_9f4d916f0d06de7728fc53dbfb3021c3)
+        ;
+
+        
+    
+    
+            circle_marker_9d5efa9d0e46ba98a3fa88253f5e967d.bindTooltip(
+                `<div>
+                     27 quai de la Tournelle NO-SE (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_48a56637c568ef1e7c9a8001c008cd35 = L.circleMarker(
+                [48.85013, 2.35423],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_7675bcf46cc9b75dfd07515ef272b2d5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5a195e41c508d7e619307d09d7607802 = $(`<div id="html_5a195e41c508d7e619307d09d7607802" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>27 quai de la Tournelle SE-NO</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.69<br>         <br>         <i>Moyenne Semaine : 183 vélos/h</i><br>         <i>Moyenne Weekend : 127 vélos/h</i>     </div>     </div>`)[0];
+                popup_7675bcf46cc9b75dfd07515ef272b2d5.setContent(html_5a195e41c508d7e619307d09d7607802);
+            
+        
+
+        circle_marker_48a56637c568ef1e7c9a8001c008cd35.bindPopup(popup_7675bcf46cc9b75dfd07515ef272b2d5)
+        ;
+
+        
+    
+    
+            circle_marker_48a56637c568ef1e7c9a8001c008cd35.bindTooltip(
+                `<div>
+                     27 quai de la Tournelle SE-NO (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a3993c5c410fec42c189e739a534a4ef = L.circleMarker(
+                [48.84613, 2.37559],
+                {"bubblingMouseEvents": true, "color": "#00b894", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00b894", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_a9a9bd551341b4fb8a23580570666c54 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_273cca340512d2102eb85de03d9fcf1d = $(`<div id="html_273cca340512d2102eb85de03d9fcf1d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>28 boulevard Diderot E-O</h4>         <hr>         <b>Type :</b> <span style="color:#00b894; font-weight:bold;">Loisirs</span><br>         <b>Indice Loisirs :</b> 1.07<br>         <br>         <i>Moyenne Semaine : 27 vélos/h</i><br>         <i>Moyenne Weekend : 28 vélos/h</i>     </div>     </div>`)[0];
+                popup_a9a9bd551341b4fb8a23580570666c54.setContent(html_273cca340512d2102eb85de03d9fcf1d);
+            
+        
+
+        circle_marker_a3993c5c410fec42c189e739a534a4ef.bindPopup(popup_a9a9bd551341b4fb8a23580570666c54)
+        ;
+
+        
+    
+    
+            circle_marker_a3993c5c410fec42c189e739a534a4ef.bindTooltip(
+                `<div>
+                     28 boulevard Diderot E-O (Loisirs)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_989792538c8916951579d67c8d326dc5 = L.circleMarker(
+                [48.84613, 2.37559],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_6a8bad034617d9ed8d95a88de4b83a10 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2539eb9ce42d2f7b0175854517b6f08a = $(`<div id="html_2539eb9ce42d2f7b0175854517b6f08a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>28 boulevard Diderot O-E</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.63<br>         <br>         <i>Moyenne Semaine : 47 vélos/h</i><br>         <i>Moyenne Weekend : 30 vélos/h</i>     </div>     </div>`)[0];
+                popup_6a8bad034617d9ed8d95a88de4b83a10.setContent(html_2539eb9ce42d2f7b0175854517b6f08a);
+            
+        
+
+        circle_marker_989792538c8916951579d67c8d326dc5.bindPopup(popup_6a8bad034617d9ed8d95a88de4b83a10)
+        ;
+
+        
+    
+    
+            circle_marker_989792538c8916951579d67c8d326dc5.bindTooltip(
+                `<div>
+                     28 boulevard Diderot O-E (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f8a3d02f985cb68646f07afdb6d57d02 = L.circleMarker(
+                [48.86999, 2.30722],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_9ecf34d29146e011bd197cd658114b7b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cb424a1168800d522c222aab7c24e43b = $(`<div id="html_cb424a1168800d522c222aab7c24e43b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>33 avenue des Champs Elysées NO-SE</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.52<br>         <br>         <i>Moyenne Semaine : 129 vélos/h</i><br>         <i>Moyenne Weekend : 67 vélos/h</i>     </div>     </div>`)[0];
+                popup_9ecf34d29146e011bd197cd658114b7b.setContent(html_cb424a1168800d522c222aab7c24e43b);
+            
+        
+
+        circle_marker_f8a3d02f985cb68646f07afdb6d57d02.bindPopup(popup_9ecf34d29146e011bd197cd658114b7b)
+        ;
+
+        
+    
+    
+            circle_marker_f8a3d02f985cb68646f07afdb6d57d02.bindTooltip(
+                `<div>
+                     33 avenue des Champs Elysées NO-SE (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ec7cec4ab2e06af2775ba6837b946fd2 = L.circleMarker(
+                [48.860528, 2.388364],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_a4a8610af4946357556151a2a2eab6ca = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6cfbbfa8bb8c979d984eb95151d21aa5 = $(`<div id="html_6cfbbfa8bb8c979d984eb95151d21aa5" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>35 boulevard de Ménilmontant NO-SE</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.77<br>         <br>         <i>Moyenne Semaine : 216 vélos/h</i><br>         <i>Moyenne Weekend : 166 vélos/h</i>     </div>     </div>`)[0];
+                popup_a4a8610af4946357556151a2a2eab6ca.setContent(html_6cfbbfa8bb8c979d984eb95151d21aa5);
+            
+        
+
+        circle_marker_ec7cec4ab2e06af2775ba6837b946fd2.bindPopup(popup_a4a8610af4946357556151a2a2eab6ca)
+        ;
+
+        
+    
+    
+            circle_marker_ec7cec4ab2e06af2775ba6837b946fd2.bindTooltip(
+                `<div>
+                     35 boulevard de Ménilmontant NO-SE (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5423124c3733db041b2a4f5c1b600ef9 = L.circleMarker(
+                [48.85174, 2.28593],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_ac70d42463adf2b09c9a4c508c6f94aa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1d78334c5859407f8ab935cc97dc04af = $(`<div id="html_1d78334c5859407f8ab935cc97dc04af" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>36 quai de Grenelle NE-SO</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.68<br>         <br>         <i>Moyenne Semaine : 115 vélos/h</i><br>         <i>Moyenne Weekend : 78 vélos/h</i>     </div>     </div>`)[0];
+                popup_ac70d42463adf2b09c9a4c508c6f94aa.setContent(html_1d78334c5859407f8ab935cc97dc04af);
+            
+        
+
+        circle_marker_5423124c3733db041b2a4f5c1b600ef9.bindPopup(popup_ac70d42463adf2b09c9a4c508c6f94aa)
+        ;
+
+        
+    
+    
+            circle_marker_5423124c3733db041b2a4f5c1b600ef9.bindTooltip(
+                `<div>
+                     36 quai de Grenelle NE-SO (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_198a2532a6ee54387ce3ff28fc933d26 = L.circleMarker(
+                [48.85174, 2.28593],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_13175548d19998bcfa96da0e058673f5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_58328cf9d4f82c46f46dd62a8a810ebc = $(`<div id="html_58328cf9d4f82c46f46dd62a8a810ebc" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>36 quai de Grenelle SO-NE</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.64<br>         <br>         <i>Moyenne Semaine : 80 vélos/h</i><br>         <i>Moyenne Weekend : 51 vélos/h</i>     </div>     </div>`)[0];
+                popup_13175548d19998bcfa96da0e058673f5.setContent(html_58328cf9d4f82c46f46dd62a8a810ebc);
+            
+        
+
+        circle_marker_198a2532a6ee54387ce3ff28fc933d26.bindPopup(popup_13175548d19998bcfa96da0e058673f5)
+        ;
+
+        
+    
+    
+            circle_marker_198a2532a6ee54387ce3ff28fc933d26.bindTooltip(
+                `<div>
+                     36 quai de Grenelle SO-NE (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e01c6d5c3fe13f1baa6b52f70e92c308 = L.circleMarker(
+                [48.86502, 2.35387],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_df9fcd63c492fe8f2aa5cf9f2432cbc7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2405d6ce14e81192993526f649d422e4 = $(`<div id="html_2405d6ce14e81192993526f649d422e4" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>38 rue Turbigo NE-SO</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.76<br>         <br>         <i>Moyenne Semaine : 139 vélos/h</i><br>         <i>Moyenne Weekend : 105 vélos/h</i>     </div>     </div>`)[0];
+                popup_df9fcd63c492fe8f2aa5cf9f2432cbc7.setContent(html_2405d6ce14e81192993526f649d422e4);
+            
+        
+
+        circle_marker_e01c6d5c3fe13f1baa6b52f70e92c308.bindPopup(popup_df9fcd63c492fe8f2aa5cf9f2432cbc7)
+        ;
+
+        
+    
+    
+            circle_marker_e01c6d5c3fe13f1baa6b52f70e92c308.bindTooltip(
+                `<div>
+                     38 rue Turbigo NE-SO (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bd7d2a518e0226a94d2306b17cf5ee14 = L.circleMarker(
+                [48.86502, 2.35387],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_82692e016109d9a7e2b4bd7384bc126c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e7d64e1f42cded7576c5b5f1f7231e6a = $(`<div id="html_e7d64e1f42cded7576c5b5f1f7231e6a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>38 rue Turbigo SO-NE</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.77<br>         <br>         <i>Moyenne Semaine : 171 vélos/h</i><br>         <i>Moyenne Weekend : 132 vélos/h</i>     </div>     </div>`)[0];
+                popup_82692e016109d9a7e2b4bd7384bc126c.setContent(html_e7d64e1f42cded7576c5b5f1f7231e6a);
+            
+        
+
+        circle_marker_bd7d2a518e0226a94d2306b17cf5ee14.bindPopup(popup_82692e016109d9a7e2b4bd7384bc126c)
+        ;
+
+        
+    
+    
+            circle_marker_bd7d2a518e0226a94d2306b17cf5ee14.bindTooltip(
+                `<div>
+                     38 rue Turbigo SO-NE (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d59a64288bf8631713211d571df8d211 = L.circleMarker(
+                [48.83436, 2.377],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_de3e3e4b2fbf6cbf65ce13954ce009e7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c2b4d59042467f2fe2054b53b38a5015 = $(`<div id="html_c2b4d59042467f2fe2054b53b38a5015" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>39 quai François Mauriac NO-SE</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.57<br>         <br>         <i>Moyenne Semaine : 78 vélos/h</i><br>         <i>Moyenne Weekend : 44 vélos/h</i>     </div>     </div>`)[0];
+                popup_de3e3e4b2fbf6cbf65ce13954ce009e7.setContent(html_c2b4d59042467f2fe2054b53b38a5015);
+            
+        
+
+        circle_marker_d59a64288bf8631713211d571df8d211.bindPopup(popup_de3e3e4b2fbf6cbf65ce13954ce009e7)
+        ;
+
+        
+    
+    
+            circle_marker_d59a64288bf8631713211d571df8d211.bindTooltip(
+                `<div>
+                     39 quai François Mauriac NO-SE (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b6ede7bfee5926bd4b74bb83b7b4753b = L.circleMarker(
+                [48.83436, 2.377],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_e3be6ae2f4eb3711a1a1134f52ae0249 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eacc289af8e3ef86960c3bfb734bd4da = $(`<div id="html_eacc289af8e3ef86960c3bfb734bd4da" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>39 quai François Mauriac SE-NO</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.55<br>         <br>         <i>Moyenne Semaine : 82 vélos/h</i><br>         <i>Moyenne Weekend : 45 vélos/h</i>     </div>     </div>`)[0];
+                popup_e3be6ae2f4eb3711a1a1134f52ae0249.setContent(html_eacc289af8e3ef86960c3bfb734bd4da);
+            
+        
+
+        circle_marker_b6ede7bfee5926bd4b74bb83b7b4753b.bindPopup(popup_e3be6ae2f4eb3711a1a1134f52ae0249)
+        ;
+
+        
+    
+    
+            circle_marker_b6ede7bfee5926bd4b74bb83b7b4753b.bindTooltip(
+                `<div>
+                     39 quai François Mauriac SE-NO (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_65b437f07bed73893fa1f12632fcd0f5 = L.circleMarker(
+                [48.8402, 2.40889],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_d7871becf60a591ace9caae560336194 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_526aee026d20d5ab25cc7883014d48ab = $(`<div id="html_526aee026d20d5ab25cc7883014d48ab" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>42 boulevard Soult N-S</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.58<br>         <br>         <i>Moyenne Semaine : 46 vélos/h</i><br>         <i>Moyenne Weekend : 27 vélos/h</i>     </div>     </div>`)[0];
+                popup_d7871becf60a591ace9caae560336194.setContent(html_526aee026d20d5ab25cc7883014d48ab);
+            
+        
+
+        circle_marker_65b437f07bed73893fa1f12632fcd0f5.bindPopup(popup_d7871becf60a591ace9caae560336194)
+        ;
+
+        
+    
+    
+            circle_marker_65b437f07bed73893fa1f12632fcd0f5.bindTooltip(
+                `<div>
+                     42 boulevard Soult N-S (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8c3d648f7d35bc725b1eae0e8252f2ad = L.circleMarker(
+                [48.8402, 2.40889],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_56551446643e37b4176d8a9013fd1a8c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c5574373041bed40e981203e79ba0173 = $(`<div id="html_c5574373041bed40e981203e79ba0173" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>42 boulevard Soult S-N</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.73<br>         <br>         <i>Moyenne Semaine : 74 vélos/h</i><br>         <i>Moyenne Weekend : 54 vélos/h</i>     </div>     </div>`)[0];
+                popup_56551446643e37b4176d8a9013fd1a8c.setContent(html_c5574373041bed40e981203e79ba0173);
+            
+        
+
+        circle_marker_8c3d648f7d35bc725b1eae0e8252f2ad.bindPopup(popup_56551446643e37b4176d8a9013fd1a8c)
+        ;
+
+        
+    
+    
+            circle_marker_8c3d648f7d35bc725b1eae0e8252f2ad.bindTooltip(
+                `<div>
+                     42 boulevard Soult S-N (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_39e5636ba2d6485896e559eb3ed55eb1 = L.circleMarker(
+                [48.86999, 2.30743],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_3e0e39fa6603fbdb941020585a7641f1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_896407115cd0df7c478156bf8736a667 = $(`<div id="html_896407115cd0df7c478156bf8736a667" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>44 avenue des Champs Elysées SE-NO</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.60<br>         <br>         <i>Moyenne Semaine : 113 vélos/h</i><br>         <i>Moyenne Weekend : 67 vélos/h</i>     </div>     </div>`)[0];
+                popup_3e0e39fa6603fbdb941020585a7641f1.setContent(html_896407115cd0df7c478156bf8736a667);
+            
+        
+
+        circle_marker_39e5636ba2d6485896e559eb3ed55eb1.bindPopup(popup_3e0e39fa6603fbdb941020585a7641f1)
+        ;
+
+        
+    
+    
+            circle_marker_39e5636ba2d6485896e559eb3ed55eb1.bindTooltip(
+                `<div>
+                     44 avenue des Champs Elysées SE-NO (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_674565e4b263d4c48df9841f296b6729 = L.circleMarker(
+                [48.837006, 2.274824],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_c18d5f6227f2f2528cbe46ce4d73fe08 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d49046681b9708633ef69876884174aa = $(`<div id="html_d49046681b9708633ef69876884174aa" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>51 boulevard du Général Martial Valin SE-NO</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.52<br>         <br>         <i>Moyenne Semaine : 73 vélos/h</i><br>         <i>Moyenne Weekend : 38 vélos/h</i>     </div>     </div>`)[0];
+                popup_c18d5f6227f2f2528cbe46ce4d73fe08.setContent(html_d49046681b9708633ef69876884174aa);
+            
+        
+
+        circle_marker_674565e4b263d4c48df9841f296b6729.bindPopup(popup_c18d5f6227f2f2528cbe46ce4d73fe08)
+        ;
+
+        
+    
+    
+            circle_marker_674565e4b263d4c48df9841f296b6729.bindTooltip(
+                `<div>
+                     51 boulevard du Général Martial Valin SE-NO (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1ef2d0eabe9c8b5c3983142649b75d4a = L.circleMarker(
+                [48.820988, 2.350291],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_d2800ca50d6a5ef761b6b60ffe553fac = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8fa9aebeb80f6d77493e8825bedf1eef = $(`<div id="html_8fa9aebeb80f6d77493e8825bedf1eef" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>56 boulevard Kellermann E-O</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.54<br>         <br>         <i>Moyenne Semaine : 71 vélos/h</i><br>         <i>Moyenne Weekend : 38 vélos/h</i>     </div>     </div>`)[0];
+                popup_d2800ca50d6a5ef761b6b60ffe553fac.setContent(html_8fa9aebeb80f6d77493e8825bedf1eef);
+            
+        
+
+        circle_marker_1ef2d0eabe9c8b5c3983142649b75d4a.bindPopup(popup_d2800ca50d6a5ef761b6b60ffe553fac)
+        ;
+
+        
+    
+    
+            circle_marker_1ef2d0eabe9c8b5c3983142649b75d4a.bindTooltip(
+                `<div>
+                     56 boulevard Kellermann E-O (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a8208f7519bd326674f8b1b89dd2894e = L.circleMarker(
+                [48.82624, 2.30281],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_2e1a2ae46208bfd0b48bb1ed1f6aa62b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f4058e64d08b94ab8bd4e1f720f5f6c2 = $(`<div id="html_f4058e64d08b94ab8bd4e1f720f5f6c2" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>6 rue Julia Bartet NE-SO</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.51<br>         <br>         <i>Moyenne Semaine : 75 vélos/h</i><br>         <i>Moyenne Weekend : 38 vélos/h</i>     </div>     </div>`)[0];
+                popup_2e1a2ae46208bfd0b48bb1ed1f6aa62b.setContent(html_f4058e64d08b94ab8bd4e1f720f5f6c2);
+            
+        
+
+        circle_marker_a8208f7519bd326674f8b1b89dd2894e.bindPopup(popup_2e1a2ae46208bfd0b48bb1ed1f6aa62b)
+        ;
+
+        
+    
+    
+            circle_marker_a8208f7519bd326674f8b1b89dd2894e.bindTooltip(
+                `<div>
+                     6 rue Julia Bartet NE-SO (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_aafbddd550e8512a170a09c267625af4 = L.circleMarker(
+                [48.82624, 2.30281],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_1eb311dab228e550e57b3664dd8f2582 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8cc9fea73ef9d46a4683b699a97f37e7 = $(`<div id="html_8cc9fea73ef9d46a4683b699a97f37e7" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>6 rue Julia Bartet SO-NE</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.42<br>         <br>         <i>Moyenne Semaine : 55 vélos/h</i><br>         <i>Moyenne Weekend : 23 vélos/h</i>     </div>     </div>`)[0];
+                popup_1eb311dab228e550e57b3664dd8f2582.setContent(html_8cc9fea73ef9d46a4683b699a97f37e7);
+            
+        
+
+        circle_marker_aafbddd550e8512a170a09c267625af4.bindPopup(popup_1eb311dab228e550e57b3664dd8f2582)
+        ;
+
+        
+    
+    
+            circle_marker_aafbddd550e8512a170a09c267625af4.bindTooltip(
+                `<div>
+                     6 rue Julia Bartet SO-NE (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f65dd324ed940ad172dc779d83f974e4 = L.circleMarker(
+                [48.86149, 2.37376],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_cc180951d36ec2d0552046a2af1d3be7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0b711e5e10f320fede3a27f709e3d6f9 = $(`<div id="html_0b711e5e10f320fede3a27f709e3d6f9" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>67 boulevard Voltaire SE-NO</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.67<br>         <br>         <i>Moyenne Semaine : 185 vélos/h</i><br>         <i>Moyenne Weekend : 124 vélos/h</i>     </div>     </div>`)[0];
+                popup_cc180951d36ec2d0552046a2af1d3be7.setContent(html_0b711e5e10f320fede3a27f709e3d6f9);
+            
+        
+
+        circle_marker_f65dd324ed940ad172dc779d83f974e4.bindPopup(popup_cc180951d36ec2d0552046a2af1d3be7)
+        ;
+
+        
+    
+    
+            circle_marker_f65dd324ed940ad172dc779d83f974e4.bindTooltip(
+                `<div>
+                     67 boulevard Voltaire SE-NO (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1e20da8aaba64b09d14b24b083e21cb5 = L.circleMarker(
+                [48.87474, 2.29219],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_6bcecef7d5d81fa98658eecbd37fd4e5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fb78b41ba01de480292f18f4d597305a = $(`<div id="html_fb78b41ba01de480292f18f4d597305a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>7 avenue de la Grande Armée NO-SE</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.57<br>         <br>         <i>Moyenne Semaine : 58 vélos/h</i><br>         <i>Moyenne Weekend : 33 vélos/h</i>     </div>     </div>`)[0];
+                popup_6bcecef7d5d81fa98658eecbd37fd4e5.setContent(html_fb78b41ba01de480292f18f4d597305a);
+            
+        
+
+        circle_marker_1e20da8aaba64b09d14b24b083e21cb5.bindPopup(popup_6bcecef7d5d81fa98658eecbd37fd4e5)
+        ;
+
+        
+    
+    
+            circle_marker_1e20da8aaba64b09d14b24b083e21cb5.bindTooltip(
+                `<div>
+                     7 avenue de la Grande Armée NO-SE (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a214f83289835714cd4d1e86c0787de9 = L.circleMarker(
+                [48.889046, 2.374872],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_6eab5b8d3d061607020b3fe0025236a2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d81c359fc2b528565b74ab46c6fae634 = $(`<div id="html_d81c359fc2b528565b74ab46c6fae634" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>72 avenue de Flandre SO-NE</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.80<br>         <br>         <i>Moyenne Semaine : 117 vélos/h</i><br>         <i>Moyenne Weekend : 94 vélos/h</i>     </div>     </div>`)[0];
+                popup_6eab5b8d3d061607020b3fe0025236a2.setContent(html_d81c359fc2b528565b74ab46c6fae634);
+            
+        
+
+        circle_marker_a214f83289835714cd4d1e86c0787de9.bindPopup(popup_6eab5b8d3d061607020b3fe0025236a2)
+        ;
+
+        
+    
+    
+            circle_marker_a214f83289835714cd4d1e86c0787de9.bindTooltip(
+                `<div>
+                     72 avenue de Flandre SO-NE (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_673f3cdceed356bc0a0a4e0336fcf6aa = L.circleMarker(
+                [48.82561, 2.314274],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_22f04b6a1ffda8768031371694b9e161 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cc99870734532986b03926aaf0dc77f5 = $(`<div id="html_cc99870734532986b03926aaf0dc77f5" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>72 boulevard Brune NO-SE</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.52<br>         <br>         <i>Moyenne Semaine : 60 vélos/h</i><br>         <i>Moyenne Weekend : 31 vélos/h</i>     </div>     </div>`)[0];
+                popup_22f04b6a1ffda8768031371694b9e161.setContent(html_cc99870734532986b03926aaf0dc77f5);
+            
+        
+
+        circle_marker_673f3cdceed356bc0a0a4e0336fcf6aa.bindPopup(popup_22f04b6a1ffda8768031371694b9e161)
+        ;
+
+        
+    
+    
+            circle_marker_673f3cdceed356bc0a0a4e0336fcf6aa.bindTooltip(
+                `<div>
+                     72 boulevard Brune NO-SE (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ce72848c63d5e6f234d77932d5c3fb12 = L.circleMarker(
+                [48.86081, 2.37301],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_74a0534cbe4503febb2e7897d8bffbba = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9ae7027a8bcdcd22e28f4874f8a04ab3 = $(`<div id="html_9ae7027a8bcdcd22e28f4874f8a04ab3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>72 boulevard Richard Lenoir S-N</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.71<br>         <br>         <i>Moyenne Semaine : 156 vélos/h</i><br>         <i>Moyenne Weekend : 110 vélos/h</i>     </div>     </div>`)[0];
+                popup_74a0534cbe4503febb2e7897d8bffbba.setContent(html_9ae7027a8bcdcd22e28f4874f8a04ab3);
+            
+        
+
+        circle_marker_ce72848c63d5e6f234d77932d5c3fb12.bindPopup(popup_74a0534cbe4503febb2e7897d8bffbba)
+        ;
+
+        
+    
+    
+            circle_marker_ce72848c63d5e6f234d77932d5c3fb12.bindTooltip(
+                `<div>
+                     72 boulevard Richard Lenoir S-N (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_58095b9b265f4139d7ab444208535144 = L.circleMarker(
+                [48.86155, 2.37407],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_166d07c491cf4a5ef28d10cddd66605b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_772fd983ef9d0c044947a692e1382844 = $(`<div id="html_772fd983ef9d0c044947a692e1382844" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>72 boulevard Voltaire NO-SE</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.68<br>         <br>         <i>Moyenne Semaine : 191 vélos/h</i><br>         <i>Moyenne Weekend : 129 vélos/h</i>     </div>     </div>`)[0];
+                popup_166d07c491cf4a5ef28d10cddd66605b.setContent(html_772fd983ef9d0c044947a692e1382844);
+            
+        
+
+        circle_marker_58095b9b265f4139d7ab444208535144.bindPopup(popup_166d07c491cf4a5ef28d10cddd66605b)
+        ;
+
+        
+    
+    
+            circle_marker_58095b9b265f4139d7ab444208535144.bindTooltip(
+                `<div>
+                     72 boulevard Voltaire NO-SE (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fb65e259ba7c750f6a5a720f8171015b = L.circleMarker(
+                [48.821204, 2.368576],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_790447c2c19a0316e55945a86a5d0481 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_17d62832775e2c3d6ee7e3ac1c86e9aa = $(`<div id="html_17d62832775e2c3d6ee7e3ac1c86e9aa" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>77 boulevard Masséna NE-SO</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.72<br>         <br>         <i>Moyenne Semaine : 29 vélos/h</i><br>         <i>Moyenne Weekend : 21 vélos/h</i>     </div>     </div>`)[0];
+                popup_790447c2c19a0316e55945a86a5d0481.setContent(html_17d62832775e2c3d6ee7e3ac1c86e9aa);
+            
+        
+
+        circle_marker_fb65e259ba7c750f6a5a720f8171015b.bindPopup(popup_790447c2c19a0316e55945a86a5d0481)
+        ;
+
+        
+    
+    
+            circle_marker_fb65e259ba7c750f6a5a720f8171015b.bindTooltip(
+                `<div>
+                     77 boulevard Masséna NE-SO (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_27fcc06440cf1392420b79b4693a4b2e = L.circleMarker(
+                [48.821204, 2.368576],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_2b1094c74f87e05949696f4c6fb112ed = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9ab05138738d2c79f7ddbf9e8ebc0094 = $(`<div id="html_9ab05138738d2c79f7ddbf9e8ebc0094" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>77 boulevard Masséna SO-NE</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.56<br>         <br>         <i>Moyenne Semaine : 73 vélos/h</i><br>         <i>Moyenne Weekend : 41 vélos/h</i>     </div>     </div>`)[0];
+                popup_2b1094c74f87e05949696f4c6fb112ed.setContent(html_9ab05138738d2c79f7ddbf9e8ebc0094);
+            
+        
+
+        circle_marker_27fcc06440cf1392420b79b4693a4b2e.bindPopup(popup_2b1094c74f87e05949696f4c6fb112ed)
+        ;
+
+        
+    
+    
+            circle_marker_27fcc06440cf1392420b79b4693a4b2e.bindTooltip(
+                `<div>
+                     77 boulevard Masséna SO-NE (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5636eea4a2bf788a3b3edd36fcb1077e = L.circleMarker(
+                [48.86089, 2.37212],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_886442804a218e8a3391376beac9f0e1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_db3cf3a6e27fcd7f2aaae4ca932f7830 = $(`<div id="html_db3cf3a6e27fcd7f2aaae4ca932f7830" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>77 boulevard Richard Lenoir N-S</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.67<br>         <br>         <i>Moyenne Semaine : 134 vélos/h</i><br>         <i>Moyenne Weekend : 90 vélos/h</i>     </div>     </div>`)[0];
+                popup_886442804a218e8a3391376beac9f0e1.setContent(html_db3cf3a6e27fcd7f2aaae4ca932f7830);
+            
+        
+
+        circle_marker_5636eea4a2bf788a3b3edd36fcb1077e.bindPopup(popup_886442804a218e8a3391376beac9f0e1)
+        ;
+
+        
+    
+    
+            circle_marker_5636eea4a2bf788a3b3edd36fcb1077e.bindTooltip(
+                `<div>
+                     77 boulevard Richard Lenoir N-S (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c5a9fba7c1063c2be807ebc06817ac72 = L.circleMarker(
+                [48.86922, 2.408714],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_78bd0820de2218887bd7091d4c3467e5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3471bd70761e96509f1c712ece3ad36e = $(`<div id="html_3471bd70761e96509f1c712ece3ad36e" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>81 boulevard Mortier N-S</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.69<br>         <br>         <i>Moyenne Semaine : 36 vélos/h</i><br>         <i>Moyenne Weekend : 25 vélos/h</i>     </div>     </div>`)[0];
+                popup_78bd0820de2218887bd7091d4c3467e5.setContent(html_3471bd70761e96509f1c712ece3ad36e);
+            
+        
+
+        circle_marker_c5a9fba7c1063c2be807ebc06817ac72.bindPopup(popup_78bd0820de2218887bd7091d4c3467e5)
+        ;
+
+        
+    
+    
+            circle_marker_c5a9fba7c1063c2be807ebc06817ac72.bindTooltip(
+                `<div>
+                     81 boulevard Mortier N-S (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bebbba04903796cc6320b38c22466456 = L.circleMarker(
+                [48.86922, 2.408714],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_bc89f656d408b852e315a21bdd0be9c6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ed4b68df6c81bfcb90ba12332ba4c96f = $(`<div id="html_ed4b68df6c81bfcb90ba12332ba4c96f" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>81 boulevard Mortier S-N</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.69<br>         <br>         <i>Moyenne Semaine : 24 vélos/h</i><br>         <i>Moyenne Weekend : 17 vélos/h</i>     </div>     </div>`)[0];
+                popup_bc89f656d408b852e315a21bdd0be9c6.setContent(html_ed4b68df6c81bfcb90ba12332ba4c96f);
+            
+        
+
+        circle_marker_bebbba04903796cc6320b38c22466456.bindPopup(popup_bc89f656d408b852e315a21bdd0be9c6)
+        ;
+
+        
+    
+    
+            circle_marker_bebbba04903796cc6320b38c22466456.bindTooltip(
+                `<div>
+                     81 boulevard Mortier S-N (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dfd2628568f83a01335803f29d8820a2 = L.circleMarker(
+                [48.88926, 2.37472],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_7d042bffddb024deaf2e7ebdfde34561 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c89b65c1a53ba12329639f45cf955aea = $(`<div id="html_c89b65c1a53ba12329639f45cf955aea" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>87 avenue de Flandre NE-SO</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.79<br>         <br>         <i>Moyenne Semaine : 132 vélos/h</i><br>         <i>Moyenne Weekend : 105 vélos/h</i>     </div>     </div>`)[0];
+                popup_7d042bffddb024deaf2e7ebdfde34561.setContent(html_c89b65c1a53ba12329639f45cf955aea);
+            
+        
+
+        circle_marker_dfd2628568f83a01335803f29d8820a2.bindPopup(popup_7d042bffddb024deaf2e7ebdfde34561)
+        ;
+
+        
+    
+    
+            circle_marker_dfd2628568f83a01335803f29d8820a2.bindTooltip(
+                `<div>
+                     87 avenue de Flandre NE-SO (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eadcb3f2257a8803c44752f32ff6bafd = L.circleMarker(
+                [48.87756, 2.35535],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_991fc9bf073277c90ccf6bde48173697 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6165708377c3e8a35878c4e41750063c = $(`<div id="html_6165708377c3e8a35878c4e41750063c" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>89 boulevard de Magenta NO-SE</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.80<br>         <br>         <i>Moyenne Semaine : 238 vélos/h</i><br>         <i>Moyenne Weekend : 191 vélos/h</i>     </div>     </div>`)[0];
+                popup_991fc9bf073277c90ccf6bde48173697.setContent(html_6165708377c3e8a35878c4e41750063c);
+            
+        
+
+        circle_marker_eadcb3f2257a8803c44752f32ff6bafd.bindPopup(popup_991fc9bf073277c90ccf6bde48173697)
+        ;
+
+        
+    
+    
+            circle_marker_eadcb3f2257a8803c44752f32ff6bafd.bindTooltip(
+                `<div>
+                     89 boulevard de Magenta NO-SE (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8dfa721059ee9b4af7bd36a7f4aeaf42 = L.circleMarker(
+                [48.81964, 2.34173],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_5bb9dac490f5166fd843e3bf38fcc101 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_02749987fc5ba300d534a16f2b921e39 = $(`<div id="html_02749987fc5ba300d534a16f2b921e39" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>9 boulevard Jourdan O-E</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.56<br>         <br>         <i>Moyenne Semaine : 74 vélos/h</i><br>         <i>Moyenne Weekend : 42 vélos/h</i>     </div>     </div>`)[0];
+                popup_5bb9dac490f5166fd843e3bf38fcc101.setContent(html_02749987fc5ba300d534a16f2b921e39);
+            
+        
+
+        circle_marker_8dfa721059ee9b4af7bd36a7f4aeaf42.bindPopup(popup_5bb9dac490f5166fd843e3bf38fcc101)
+        ;
+
+        
+    
+    
+            circle_marker_8dfa721059ee9b4af7bd36a7f4aeaf42.bindTooltip(
+                `<div>
+                     9 boulevard Jourdan O-E (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c952b710c5e7127c43231a25b02b7a94 = L.circleMarker(
+                [48.834624, 2.405283],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_72d5023a9e47ef9efcc3b82e08b96cdd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1f32c10ded7eaf73cf64eeb1a2ad21dd = $(`<div id="html_1f32c10ded7eaf73cf64eeb1a2ad21dd" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>98 boulevard Poniatowski NE-SO</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.62<br>         <br>         <i>Moyenne Semaine : 50 vélos/h</i><br>         <i>Moyenne Weekend : 31 vélos/h</i>     </div>     </div>`)[0];
+                popup_72d5023a9e47ef9efcc3b82e08b96cdd.setContent(html_1f32c10ded7eaf73cf64eeb1a2ad21dd);
+            
+        
+
+        circle_marker_c952b710c5e7127c43231a25b02b7a94.bindPopup(popup_72d5023a9e47ef9efcc3b82e08b96cdd)
+        ;
+
+        
+    
+    
+            circle_marker_c952b710c5e7127c43231a25b02b7a94.bindTooltip(
+                `<div>
+                     98 boulevard Poniatowski NE-SO (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3f9b5639dc0cd53a9dda699c5ecb9235 = L.circleMarker(
+                [48.834624, 2.405283],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_af75aa63676d620093fde0124eb2cea1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e290fe07c0f390c07232fc0431dccf90 = $(`<div id="html_e290fe07c0f390c07232fc0431dccf90" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>98 boulevard Poniatowski SO-NE</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.72<br>         <br>         <i>Moyenne Semaine : 69 vélos/h</i><br>         <i>Moyenne Weekend : 50 vélos/h</i>     </div>     </div>`)[0];
+                popup_af75aa63676d620093fde0124eb2cea1.setContent(html_e290fe07c0f390c07232fc0431dccf90);
+            
+        
+
+        circle_marker_3f9b5639dc0cd53a9dda699c5ecb9235.bindPopup(popup_af75aa63676d620093fde0124eb2cea1)
+        ;
+
+        
+    
+    
+            circle_marker_3f9b5639dc0cd53a9dda699c5ecb9235.bindTooltip(
+                `<div>
+                     98 boulevard Poniatowski SO-NE (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7ceda7b0586f8b771018c9c50a4d282f = L.circleMarker(
+                [48.890457, 2.368852],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_6dbf773e7eb4c53c10effcf00f11f6ec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e2a0b48dc2095b9446cfe1bd8159add3 = $(`<div id="html_e2a0b48dc2095b9446cfe1bd8159add3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Face 104 rue d'Aubervilliers N-S</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.64<br>         <br>         <i>Moyenne Semaine : 71 vélos/h</i><br>         <i>Moyenne Weekend : 46 vélos/h</i>     </div>     </div>`)[0];
+                popup_6dbf773e7eb4c53c10effcf00f11f6ec.setContent(html_e2a0b48dc2095b9446cfe1bd8159add3);
+            
+        
+
+        circle_marker_7ceda7b0586f8b771018c9c50a4d282f.bindPopup(popup_6dbf773e7eb4c53c10effcf00f11f6ec)
+        ;
+
+        
+    
+    
+            circle_marker_7ceda7b0586f8b771018c9c50a4d282f.bindTooltip(
+                `<div>
+                     Face 104 rue d'Aubervilliers N-S (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_42a98923f48e03e207c48e6d0c41bc22 = L.circleMarker(
+                [48.890457, 2.368852],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_2d1b4c75bf0ba052dbf302a98ac002d2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7f2b91524f34d968cc0df74c8332bc8b = $(`<div id="html_7f2b91524f34d968cc0df74c8332bc8b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Face 104 rue d'Aubervilliers S-N</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.63<br>         <br>         <i>Moyenne Semaine : 59 vélos/h</i><br>         <i>Moyenne Weekend : 37 vélos/h</i>     </div>     </div>`)[0];
+                popup_2d1b4c75bf0ba052dbf302a98ac002d2.setContent(html_7f2b91524f34d968cc0df74c8332bc8b);
+            
+        
+
+        circle_marker_42a98923f48e03e207c48e6d0c41bc22.bindPopup(popup_2d1b4c75bf0ba052dbf302a98ac002d2)
+        ;
+
+        
+    
+    
+            circle_marker_42a98923f48e03e207c48e6d0c41bc22.bindTooltip(
+                `<div>
+                     Face 104 rue d'Aubervilliers S-N (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_677b4440da8db3e18bae1bd77ccc2551 = L.circleMarker(
+                [48.88156, 2.28122],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_19b2d7f62e7d7f27e6a270ef956a5354 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_35fc4ae55e431532c4853878e8c43266 = $(`<div id="html_35fc4ae55e431532c4853878e8c43266" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Face au 16 avenue de la  Porte des Ternes O-E</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.48<br>         <br>         <i>Moyenne Semaine : 31 vélos/h</i><br>         <i>Moyenne Weekend : 15 vélos/h</i>     </div>     </div>`)[0];
+                popup_19b2d7f62e7d7f27e6a270ef956a5354.setContent(html_35fc4ae55e431532c4853878e8c43266);
+            
+        
+
+        circle_marker_677b4440da8db3e18bae1bd77ccc2551.bindPopup(popup_19b2d7f62e7d7f27e6a270ef956a5354)
+        ;
+
+        
+    
+    
+            circle_marker_677b4440da8db3e18bae1bd77ccc2551.bindTooltip(
+                `<div>
+                     Face au 16 avenue de la  Porte des Ternes O-E (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9eccdc385ccc77541e97dae12513a480 = L.circleMarker(
+                [48.89141, 2.38482],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_4a80b0599579532bebaea8cf037d96e0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1dec25db5272bbe4b3fdaf4800081e4a = $(`<div id="html_1dec25db5272bbe4b3fdaf4800081e4a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Face au 25 quai de l'Oise NE-SO</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.75<br>         <br>         <i>Moyenne Semaine : 73 vélos/h</i><br>         <i>Moyenne Weekend : 55 vélos/h</i>     </div>     </div>`)[0];
+                popup_4a80b0599579532bebaea8cf037d96e0.setContent(html_1dec25db5272bbe4b3fdaf4800081e4a);
+            
+        
+
+        circle_marker_9eccdc385ccc77541e97dae12513a480.bindPopup(popup_4a80b0599579532bebaea8cf037d96e0)
+        ;
+
+        
+    
+    
+            circle_marker_9eccdc385ccc77541e97dae12513a480.bindTooltip(
+                `<div>
+                     Face au 25 quai de l'Oise NE-SO (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_19b49009f6495c671c570381f72165b3 = L.circleMarker(
+                [48.89141, 2.38482],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_c43c6489fc812bd005f081f103874dc1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_799f3dda2f110cf15a601d573dd38d24 = $(`<div id="html_799f3dda2f110cf15a601d573dd38d24" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Face au 25 quai de l'Oise SO-NE</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.73<br>         <br>         <i>Moyenne Semaine : 69 vélos/h</i><br>         <i>Moyenne Weekend : 50 vélos/h</i>     </div>     </div>`)[0];
+                popup_c43c6489fc812bd005f081f103874dc1.setContent(html_799f3dda2f110cf15a601d573dd38d24);
+            
+        
+
+        circle_marker_19b49009f6495c671c570381f72165b3.bindPopup(popup_c43c6489fc812bd005f081f103874dc1)
+        ;
+
+        
+    
+    
+            circle_marker_19b49009f6495c671c570381f72165b3.bindTooltip(
+                `<div>
+                     Face au 25 quai de l'Oise SO-NE (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8300ad6a1ab92bb0636cec7b2583895a = L.circleMarker(
+                [48.86485, 2.40966],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_c2d9d436f64a9c3b3c2ff22e25392057 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b094c0a3d23e1813f94f5211d2796761 = $(`<div id="html_b094c0a3d23e1813f94f5211d2796761" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Face au 4 avenue de la porte de Bagnolet E-O</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.61<br>         <br>         <i>Moyenne Semaine : 60 vélos/h</i><br>         <i>Moyenne Weekend : 36 vélos/h</i>     </div>     </div>`)[0];
+                popup_c2d9d436f64a9c3b3c2ff22e25392057.setContent(html_b094c0a3d23e1813f94f5211d2796761);
+            
+        
+
+        circle_marker_8300ad6a1ab92bb0636cec7b2583895a.bindPopup(popup_c2d9d436f64a9c3b3c2ff22e25392057)
+        ;
+
+        
+    
+    
+            circle_marker_8300ad6a1ab92bb0636cec7b2583895a.bindTooltip(
+                `<div>
+                     Face au 4 avenue de la porte de Bagnolet E-O (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f0a12f1b00ed2417fadef44adfcd94fe = L.circleMarker(
+                [48.86485, 2.40966],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_ffa2f660690aa4f23e76488cf52fc924 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2f93526538666bb3b9e2f053c13aeb2c = $(`<div id="html_2f93526538666bb3b9e2f053c13aeb2c" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Face au 4 avenue de la porte de Bagnolet O-E</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.60<br>         <br>         <i>Moyenne Semaine : 40 vélos/h</i><br>         <i>Moyenne Weekend : 24 vélos/h</i>     </div>     </div>`)[0];
+                popup_ffa2f660690aa4f23e76488cf52fc924.setContent(html_2f93526538666bb3b9e2f053c13aeb2c);
+            
+        
+
+        circle_marker_f0a12f1b00ed2417fadef44adfcd94fe.bindPopup(popup_ffa2f660690aa4f23e76488cf52fc924)
+        ;
+
+        
+    
+    
+            circle_marker_f0a12f1b00ed2417fadef44adfcd94fe.bindTooltip(
+                `<div>
+                     Face au 4 avenue de la porte de Bagnolet O-E (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ac09294b9ff595b77a04d4e65416d1f9 = L.circleMarker(
+                [48.83428, 2.26526],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_a64f947df5e7c5fb2b129d71310aac31 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2cd2010cbd386df9e96b7aa57ad764a9 = $(`<div id="html_2cd2010cbd386df9e96b7aa57ad764a9" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Face au 40 quai D'Issy NE-SO</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.49<br>         <br>         <i>Moyenne Semaine : 38 vélos/h</i><br>         <i>Moyenne Weekend : 18 vélos/h</i>     </div>     </div>`)[0];
+                popup_a64f947df5e7c5fb2b129d71310aac31.setContent(html_2cd2010cbd386df9e96b7aa57ad764a9);
+            
+        
+
+        circle_marker_ac09294b9ff595b77a04d4e65416d1f9.bindPopup(popup_a64f947df5e7c5fb2b129d71310aac31)
+        ;
+
+        
+    
+    
+            circle_marker_ac09294b9ff595b77a04d4e65416d1f9.bindTooltip(
+                `<div>
+                     Face au 40 quai D'Issy NE-SO (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0aedf60b29e37c69576353f7dcad2429 = L.circleMarker(
+                [48.83428, 2.26526],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_0f67a82b7801c9e3c72007bdda4b51c1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_96d152c726c0101d0b1107e961373f9a = $(`<div id="html_96d152c726c0101d0b1107e961373f9a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Face au 40 quai D'Issy SO-NE</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.49<br>         <br>         <i>Moyenne Semaine : 28 vélos/h</i><br>         <i>Moyenne Weekend : 14 vélos/h</i>     </div>     </div>`)[0];
+                popup_0f67a82b7801c9e3c72007bdda4b51c1.setContent(html_96d152c726c0101d0b1107e961373f9a);
+            
+        
+
+        circle_marker_0aedf60b29e37c69576353f7dcad2429.bindPopup(popup_0f67a82b7801c9e3c72007bdda4b51c1)
+        ;
+
+        
+    
+    
+            circle_marker_0aedf60b29e37c69576353f7dcad2429.bindTooltip(
+                `<div>
+                     Face au 40 quai D'Issy SO-NE (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ada84d5713eb6b7bfe4b47b16910ded3 = L.circleMarker(
+                [48.89128, 2.38606],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_d1a678de8c2de7262aa8d3c48be6fc42 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_185865dd60ac6590403094facaef160d = $(`<div id="html_185865dd60ac6590403094facaef160d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Face au 48 quai de la marne NE-SO</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.75<br>         <br>         <i>Moyenne Semaine : 108 vélos/h</i><br>         <i>Moyenne Weekend : 81 vélos/h</i>     </div>     </div>`)[0];
+                popup_d1a678de8c2de7262aa8d3c48be6fc42.setContent(html_185865dd60ac6590403094facaef160d);
+            
+        
+
+        circle_marker_ada84d5713eb6b7bfe4b47b16910ded3.bindPopup(popup_d1a678de8c2de7262aa8d3c48be6fc42)
+        ;
+
+        
+    
+    
+            circle_marker_ada84d5713eb6b7bfe4b47b16910ded3.bindTooltip(
+                `<div>
+                     Face au 48 quai de la marne NE-SO (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_206c8db381be5e2ec8e353edd84f9e25 = L.circleMarker(
+                [48.89128, 2.38606],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_57fc590c536cbaa2763264cf4f18de1a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_79b727df833cd8f03d0ae4a3a0346412 = $(`<div id="html_79b727df833cd8f03d0ae4a3a0346412" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Face au 48 quai de la marne SO-NE</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.80<br>         <br>         <i>Moyenne Semaine : 118 vélos/h</i><br>         <i>Moyenne Weekend : 95 vélos/h</i>     </div>     </div>`)[0];
+                popup_57fc590c536cbaa2763264cf4f18de1a.setContent(html_79b727df833cd8f03d0ae4a3a0346412);
+            
+        
+
+        circle_marker_206c8db381be5e2ec8e353edd84f9e25.bindPopup(popup_57fc590c536cbaa2763264cf4f18de1a)
+        ;
+
+        
+    
+    
+            circle_marker_206c8db381be5e2ec8e353edd84f9e25.bindTooltip(
+                `<div>
+                     Face au 48 quai de la marne SO-NE (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8007a34778a227ba02387fa6a9429d54 = L.circleMarker(
+                [48.837055, 2.274019],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_179e7feb2e314fe415cca7a095bba7a6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_09aaf8e8f2dfef83933e444d1a8be75a = $(`<div id="html_09aaf8e8f2dfef83933e444d1a8be75a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Face au 49 boulevard du Général Martial Valin NO-SE</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.51<br>         <br>         <i>Moyenne Semaine : 64 vélos/h</i><br>         <i>Moyenne Weekend : 33 vélos/h</i>     </div>     </div>`)[0];
+                popup_179e7feb2e314fe415cca7a095bba7a6.setContent(html_09aaf8e8f2dfef83933e444d1a8be75a);
+            
+        
+
+        circle_marker_8007a34778a227ba02387fa6a9429d54.bindPopup(popup_179e7feb2e314fe415cca7a095bba7a6)
+        ;
+
+        
+    
+    
+            circle_marker_8007a34778a227ba02387fa6a9429d54.bindTooltip(
+                `<div>
+                     Face au 49 boulevard du Général Martial Valin NO-SE (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4d9dcbbb8f6766437cd7a6b5f7801e7d = L.circleMarker(
+                [48.829523, 2.38699],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_eda9911d6bb4d75874c9f9e4122c1e1b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d2c4bb7b071b5ce98023406c5ae4b786 = $(`<div id="html_d2c4bb7b071b5ce98023406c5ae4b786" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Face au 70 quai de Bercy N-S</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.54<br>         <br>         <i>Moyenne Semaine : 56 vélos/h</i><br>         <i>Moyenne Weekend : 30 vélos/h</i>     </div>     </div>`)[0];
+                popup_eda9911d6bb4d75874c9f9e4122c1e1b.setContent(html_d2c4bb7b071b5ce98023406c5ae4b786);
+            
+        
+
+        circle_marker_4d9dcbbb8f6766437cd7a6b5f7801e7d.bindPopup(popup_eda9911d6bb4d75874c9f9e4122c1e1b)
+        ;
+
+        
+    
+    
+            circle_marker_4d9dcbbb8f6766437cd7a6b5f7801e7d.bindTooltip(
+                `<div>
+                     Face au 70 quai de Bercy N-S (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_de3c5005c4214d3d2c8689f8f29e8e39 = L.circleMarker(
+                [48.829523, 2.38699],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_36eb2525788817ccf96938db06f8e0c7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_91ff88f0d427cdfd630f9477a3d8a25b = $(`<div id="html_91ff88f0d427cdfd630f9477a3d8a25b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Face au 70 quai de Bercy S-N</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.50<br>         <br>         <i>Moyenne Semaine : 49 vélos/h</i><br>         <i>Moyenne Weekend : 25 vélos/h</i>     </div>     </div>`)[0];
+                popup_36eb2525788817ccf96938db06f8e0c7.setContent(html_91ff88f0d427cdfd630f9477a3d8a25b);
+            
+        
+
+        circle_marker_de3c5005c4214d3d2c8689f8f29e8e39.bindPopup(popup_36eb2525788817ccf96938db06f8e0c7)
+        ;
+
+        
+    
+    
+            circle_marker_de3c5005c4214d3d2c8689f8f29e8e39.bindTooltip(
+                `<div>
+                     Face au 70 quai de Bercy S-N (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f740293e087288f3dd3e7e10c3f5b73a = L.circleMarker(
+                [48.830331, 2.400551],
+                {"bubblingMouseEvents": true, "color": "#00b894", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00b894", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_523837f3cd89975fa390edb33a711440 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4f2aea82d0432e85a183264e7b08fe9b = $(`<div id="html_4f2aea82d0432e85a183264e7b08fe9b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Face au 8 avenue de la porte de Charenton NO-SE</h4>         <hr>         <b>Type :</b> <span style="color:#00b894; font-weight:bold;">Loisirs</span><br>         <b>Indice Loisirs :</b> 1.03<br>         <br>         <i>Moyenne Semaine : 5 vélos/h</i><br>         <i>Moyenne Weekend : 5 vélos/h</i>     </div>     </div>`)[0];
+                popup_523837f3cd89975fa390edb33a711440.setContent(html_4f2aea82d0432e85a183264e7b08fe9b);
+            
+        
+
+        circle_marker_f740293e087288f3dd3e7e10c3f5b73a.bindPopup(popup_523837f3cd89975fa390edb33a711440)
+        ;
+
+        
+    
+    
+            circle_marker_f740293e087288f3dd3e7e10c3f5b73a.bindTooltip(
+                `<div>
+                     Face au 8 avenue de la porte de Charenton NO-SE (Loisirs)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_93112e0732d199e84c81337787b7aa35 = L.circleMarker(
+                [48.830331, 2.400551],
+                {"bubblingMouseEvents": true, "color": "#00b894", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00b894", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_b29491b6c93fb584dcc12035a40bace3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_73717bb8b51d725852f1d0cd3ae8c2dc = $(`<div id="html_73717bb8b51d725852f1d0cd3ae8c2dc" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Face au 8 avenue de la porte de Charenton SE-NO</h4>         <hr>         <b>Type :</b> <span style="color:#00b894; font-weight:bold;">Loisirs</span><br>         <b>Indice Loisirs :</b> 1.29<br>         <br>         <i>Moyenne Semaine : 2 vélos/h</i><br>         <i>Moyenne Weekend : 2 vélos/h</i>     </div>     </div>`)[0];
+                popup_b29491b6c93fb584dcc12035a40bace3.setContent(html_73717bb8b51d725852f1d0cd3ae8c2dc);
+            
+        
+
+        circle_marker_93112e0732d199e84c81337787b7aa35.bindPopup(popup_b29491b6c93fb584dcc12035a40bace3)
+        ;
+
+        
+    
+    
+            circle_marker_93112e0732d199e84c81337787b7aa35.bindTooltip(
+                `<div>
+                     Face au 8 avenue de la porte de Charenton SE-NO (Loisirs)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3e76adbffa2442b7f92bb197eaf6e497 = L.circleMarker(
+                [48.84223, 2.36811],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_9270c3bc86f58f9f94d9ad04c64809d8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_385772ddcc1cdd47c6b58e77b023b7af = $(`<div id="html_385772ddcc1cdd47c6b58e77b023b7af" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Pont Charles De Gaulle NE-SO</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.48<br>         <br>         <i>Moyenne Semaine : 59 vélos/h</i><br>         <i>Moyenne Weekend : 29 vélos/h</i>     </div>     </div>`)[0];
+                popup_9270c3bc86f58f9f94d9ad04c64809d8.setContent(html_385772ddcc1cdd47c6b58e77b023b7af);
+            
+        
+
+        circle_marker_3e76adbffa2442b7f92bb197eaf6e497.bindPopup(popup_9270c3bc86f58f9f94d9ad04c64809d8)
+        ;
+
+        
+    
+    
+            circle_marker_3e76adbffa2442b7f92bb197eaf6e497.bindTooltip(
+                `<div>
+                     Pont Charles De Gaulle NE-SO (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6997689ead7cdbd63225adbfc8c79345 = L.circleMarker(
+                [48.84223, 2.36811],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_3bd2c5a0d2d490c799c90b13e73d7961 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9cf10acdb64e10349daa64bbc8b7d66d = $(`<div id="html_9cf10acdb64e10349daa64bbc8b7d66d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Pont Charles De Gaulle SO-NE</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.46<br>         <br>         <i>Moyenne Semaine : 57 vélos/h</i><br>         <i>Moyenne Weekend : 26 vélos/h</i>     </div>     </div>`)[0];
+                popup_3bd2c5a0d2d490c799c90b13e73d7961.setContent(html_9cf10acdb64e10349daa64bbc8b7d66d);
+            
+        
+
+        circle_marker_6997689ead7cdbd63225adbfc8c79345.bindPopup(popup_3bd2c5a0d2d490c799c90b13e73d7961)
+        ;
+
+        
+    
+    
+            circle_marker_6997689ead7cdbd63225adbfc8c79345.bindTooltip(
+                `<div>
+                     Pont Charles De Gaulle SO-NE (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_24d06e65fc107b1efd4a45aea094412c = L.circleMarker(
+                [48.82682, 2.38491],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_8cca432a58765451337c811fc9ceb864 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_28a595dbe3c0a68989d42ad4e8d1f983 = $(`<div id="html_28a595dbe3c0a68989d42ad4e8d1f983" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Pont National NE-SO</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.59<br>         <br>         <i>Moyenne Semaine : 95 vélos/h</i><br>         <i>Moyenne Weekend : 56 vélos/h</i>     </div>     </div>`)[0];
+                popup_8cca432a58765451337c811fc9ceb864.setContent(html_28a595dbe3c0a68989d42ad4e8d1f983);
+            
+        
+
+        circle_marker_24d06e65fc107b1efd4a45aea094412c.bindPopup(popup_8cca432a58765451337c811fc9ceb864)
+        ;
+
+        
+    
+    
+            circle_marker_24d06e65fc107b1efd4a45aea094412c.bindTooltip(
+                `<div>
+                     Pont National NE-SO (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_059e864bcc724a5c03d3efa755de2f4b = L.circleMarker(
+                [48.82639, 2.38448],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_4160588c1dc8a32eae33aba41a188b8c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_32820c31cf4a22a28c1bdced28b6a9a7 = $(`<div id="html_32820c31cf4a22a28c1bdced28b6a9a7" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Pont National SO-NE</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.65<br>         <br>         <i>Moyenne Semaine : 59 vélos/h</i><br>         <i>Moyenne Weekend : 38 vélos/h</i>     </div>     </div>`)[0];
+                popup_4160588c1dc8a32eae33aba41a188b8c.setContent(html_32820c31cf4a22a28c1bdced28b6a9a7);
+            
+        
+
+        circle_marker_059e864bcc724a5c03d3efa755de2f4b.bindPopup(popup_4160588c1dc8a32eae33aba41a188b8c)
+        ;
+
+        
+    
+    
+            circle_marker_059e864bcc724a5c03d3efa755de2f4b.bindTooltip(
+                `<div>
+                     Pont National SO-NE (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6b0e4f2e657d75501157a1ddc11e61b0 = L.circleMarker(
+                [48.83848, 2.37587],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_07e0aa69fc103ed6fbc716e805ea5486 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ca39c5bebf98e8b9a3bd43d4b52941f3 = $(`<div id="html_ca39c5bebf98e8b9a3bd43d4b52941f3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Pont de Bercy NE-SO</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.61<br>         <br>         <i>Moyenne Semaine : 67 vélos/h</i><br>         <i>Moyenne Weekend : 41 vélos/h</i>     </div>     </div>`)[0];
+                popup_07e0aa69fc103ed6fbc716e805ea5486.setContent(html_ca39c5bebf98e8b9a3bd43d4b52941f3);
+            
+        
+
+        circle_marker_6b0e4f2e657d75501157a1ddc11e61b0.bindPopup(popup_07e0aa69fc103ed6fbc716e805ea5486)
+        ;
+
+        
+    
+    
+            circle_marker_6b0e4f2e657d75501157a1ddc11e61b0.bindTooltip(
+                `<div>
+                     Pont de Bercy NE-SO (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_efef2308142d80d206b94f4f1b6299d4 = L.circleMarker(
+                [48.83848, 2.37587],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_7f317fa1367b000d6a467e303981aa89 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0e6c462e5c9a1221c7d1f902f49c1253 = $(`<div id="html_0e6c462e5c9a1221c7d1f902f49c1253" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Pont de Bercy SO-NE</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.58<br>         <br>         <i>Moyenne Semaine : 60 vélos/h</i><br>         <i>Moyenne Weekend : 34 vélos/h</i>     </div>     </div>`)[0];
+                popup_7f317fa1367b000d6a467e303981aa89.setContent(html_0e6c462e5c9a1221c7d1f902f49c1253);
+            
+        
+
+        circle_marker_efef2308142d80d206b94f4f1b6299d4.bindPopup(popup_7f317fa1367b000d6a467e303981aa89)
+        ;
+
+        
+    
+    
+            circle_marker_efef2308142d80d206b94f4f1b6299d4.bindTooltip(
+                `<div>
+                     Pont de Bercy SO-NE (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2723019729c020b42449da62ff60833c = L.circleMarker(
+                [48.86373, 2.31973],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_e80a0946ac0527b271106adbc657bf2a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3cc4efbc36f72f49e8b9a83dfdcdc501 = $(`<div id="html_3cc4efbc36f72f49e8b9a83dfdcdc501" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Pont de la Concorde N-S</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.60<br>         <br>         <i>Moyenne Semaine : 155 vélos/h</i><br>         <i>Moyenne Weekend : 93 vélos/h</i>     </div>     </div>`)[0];
+                popup_e80a0946ac0527b271106adbc657bf2a.setContent(html_3cc4efbc36f72f49e8b9a83dfdcdc501);
+            
+        
+
+        circle_marker_2723019729c020b42449da62ff60833c.bindPopup(popup_e80a0946ac0527b271106adbc657bf2a)
+        ;
+
+        
+    
+    
+            circle_marker_2723019729c020b42449da62ff60833c.bindTooltip(
+                `<div>
+                     Pont de la Concorde N-S (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_881074348bafe31d4786c7c1c4af7d72 = L.circleMarker(
+                [48.86382, 2.32006],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_a32782356a04498c57e85f5154cc75cd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b622930bc8f472bb30c611939133fe25 = $(`<div id="html_b622930bc8f472bb30c611939133fe25" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Pont de la Concorde S-N</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.61<br>         <br>         <i>Moyenne Semaine : 153 vélos/h</i><br>         <i>Moyenne Weekend : 93 vélos/h</i>     </div>     </div>`)[0];
+                popup_a32782356a04498c57e85f5154cc75cd.setContent(html_b622930bc8f472bb30c611939133fe25);
+            
+        
+
+        circle_marker_881074348bafe31d4786c7c1c4af7d72.bindPopup(popup_a32782356a04498c57e85f5154cc75cd)
+        ;
+
+        
+    
+    
+            circle_marker_881074348bafe31d4786c7c1c4af7d72.bindTooltip(
+                `<div>
+                     Pont de la Concorde S-N (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4dfc40ef8195c983ef41f93c19230024 = L.circleMarker(
+                [48.86281, 2.31037],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_6db1b248dab10f5439923794437f2ca1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_80426bfff45b90af126893d61ce446d8 = $(`<div id="html_80426bfff45b90af126893d61ce446d8" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Pont des Invalides (couloir bus) N-S</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.44<br>         <br>         <i>Moyenne Semaine : 53 vélos/h</i><br>         <i>Moyenne Weekend : 23 vélos/h</i>     </div>     </div>`)[0];
+                popup_6db1b248dab10f5439923794437f2ca1.setContent(html_80426bfff45b90af126893d61ce446d8);
+            
+        
+
+        circle_marker_4dfc40ef8195c983ef41f93c19230024.bindPopup(popup_6db1b248dab10f5439923794437f2ca1)
+        ;
+
+        
+    
+    
+            circle_marker_4dfc40ef8195c983ef41f93c19230024.bindTooltip(
+                `<div>
+                     Pont des Invalides (couloir bus) N-S (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4eb733cfd795be253a7bce55d2155bb4 = L.circleMarker(
+                [48.86279, 2.31055],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_b6ba18fc5651c05540cde8e4a02d64f5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f445f8e7a101a33d2b7866d74bd22bff = $(`<div id="html_f445f8e7a101a33d2b7866d74bd22bff" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Pont des Invalides S-N</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.41<br>         <br>         <i>Moyenne Semaine : 65 vélos/h</i><br>         <i>Moyenne Weekend : 27 vélos/h</i>     </div>     </div>`)[0];
+                popup_b6ba18fc5651c05540cde8e4a02d64f5.setContent(html_f445f8e7a101a33d2b7866d74bd22bff);
+            
+        
+
+        circle_marker_4eb733cfd795be253a7bce55d2155bb4.bindPopup(popup_b6ba18fc5651c05540cde8e4a02d64f5)
+        ;
+
+        
+    
+    
+            circle_marker_4eb733cfd795be253a7bce55d2155bb4.bindTooltip(
+                `<div>
+                     Pont des Invalides S-N (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ed6ea148d573f307af5ea1e2e78a7fb4 = L.circleMarker(
+                [48.83994, 2.26692],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_6b199e072c397dc23b527a6eb3948012 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7711b137a2594babe859953f3139076b = $(`<div id="html_7711b137a2594babe859953f3139076b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Pont du Garigliano NO-SE</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.58<br>         <br>         <i>Moyenne Semaine : 80 vélos/h</i><br>         <i>Moyenne Weekend : 46 vélos/h</i>     </div>     </div>`)[0];
+                popup_6b199e072c397dc23b527a6eb3948012.setContent(html_7711b137a2594babe859953f3139076b);
+            
+        
+
+        circle_marker_ed6ea148d573f307af5ea1e2e78a7fb4.bindPopup(popup_6b199e072c397dc23b527a6eb3948012)
+        ;
+
+        
+    
+    
+            circle_marker_ed6ea148d573f307af5ea1e2e78a7fb4.bindTooltip(
+                `<div>
+                     Pont du Garigliano NO-SE (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_acc10bce25242263fb342d51d557ea66 = L.circleMarker(
+                [48.83992, 2.26708],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_32a67e69965169d9296aa0b85e6df5f4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3c3802c29f9b81fd09f49d4064e9b8a2 = $(`<div id="html_3c3802c29f9b81fd09f49d4064e9b8a2" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Pont du Garigliano SE-NO</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.54<br>         <br>         <i>Moyenne Semaine : 64 vélos/h</i><br>         <i>Moyenne Weekend : 35 vélos/h</i>     </div>     </div>`)[0];
+                popup_32a67e69965169d9296aa0b85e6df5f4.setContent(html_3c3802c29f9b81fd09f49d4064e9b8a2);
+            
+        
+
+        circle_marker_acc10bce25242263fb342d51d557ea66.bindPopup(popup_32a67e69965169d9296aa0b85e6df5f4)
+        ;
+
+        
+    
+    
+            circle_marker_acc10bce25242263fb342d51d557ea66.bindTooltip(
+                `<div>
+                     Pont du Garigliano SE-NO (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6d45af7a9f1a7f86074a70d5d5c4b325 = L.circleMarker(
+                [48.8629, 2.3118],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_a50e82a7d7a2f4608b4fd095e35dc6aa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a8f42eb6fff1354d09433c31f84420c7 = $(`<div id="html_a8f42eb6fff1354d09433c31f84420c7" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Quai d'Orsay E-O</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.80<br>         <br>         <i>Moyenne Semaine : 171 vélos/h</i><br>         <i>Moyenne Weekend : 136 vélos/h</i>     </div>     </div>`)[0];
+                popup_a50e82a7d7a2f4608b4fd095e35dc6aa.setContent(html_a8f42eb6fff1354d09433c31f84420c7);
+            
+        
+
+        circle_marker_6d45af7a9f1a7f86074a70d5d5c4b325.bindPopup(popup_a50e82a7d7a2f4608b4fd095e35dc6aa)
+        ;
+
+        
+    
+    
+            circle_marker_6d45af7a9f1a7f86074a70d5d5c4b325.bindTooltip(
+                `<div>
+                     Quai d'Orsay E-O (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2640cc106a2aeddf5faa51fbc5547b49 = L.circleMarker(
+                [48.8629, 2.3118],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_4142334535c2b109e04fa85508a400a6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_deee9152433364ec3c0c5b3ac9c19a5a = $(`<div id="html_deee9152433364ec3c0c5b3ac9c19a5a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Quai d'Orsay O-E</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.74<br>         <br>         <i>Moyenne Semaine : 146 vélos/h</i><br>         <i>Moyenne Weekend : 108 vélos/h</i>     </div>     </div>`)[0];
+                popup_4142334535c2b109e04fa85508a400a6.setContent(html_deee9152433364ec3c0c5b3ac9c19a5a);
+            
+        
+
+        circle_marker_2640cc106a2aeddf5faa51fbc5547b49.bindPopup(popup_4142334535c2b109e04fa85508a400a6)
+        ;
+
+        
+    
+    
+            circle_marker_2640cc106a2aeddf5faa51fbc5547b49.bindTooltip(
+                `<div>
+                     Quai d'Orsay O-E (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_096c0651ad9d857a13334beace6027f0 = L.circleMarker(
+                [48.8635, 2.32239],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_8b263222de40e5d812c132b15bab27d8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f806ea8b06a834ad738e044f85020110 = $(`<div id="html_f806ea8b06a834ad738e044f85020110" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Quai des Tuileries NO-SE</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.52<br>         <br>         <i>Moyenne Semaine : 100 vélos/h</i><br>         <i>Moyenne Weekend : 52 vélos/h</i>     </div>     </div>`)[0];
+                popup_8b263222de40e5d812c132b15bab27d8.setContent(html_f806ea8b06a834ad738e044f85020110);
+            
+        
+
+        circle_marker_096c0651ad9d857a13334beace6027f0.bindPopup(popup_8b263222de40e5d812c132b15bab27d8)
+        ;
+
+        
+    
+    
+            circle_marker_096c0651ad9d857a13334beace6027f0.bindTooltip(
+                `<div>
+                     Quai des Tuileries NO-SE (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eaaefaacd61d677995c07d2d0c165813 = L.circleMarker(
+                [48.8635, 2.32239],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_6e1e11c2d5f104f84ffbad9796b149d6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5157ce9c570843e52e3d6d4b05ff3cd2 = $(`<div id="html_5157ce9c570843e52e3d6d4b05ff3cd2" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Quai des Tuileries SE-NO</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.50<br>         <br>         <i>Moyenne Semaine : 75 vélos/h</i><br>         <i>Moyenne Weekend : 37 vélos/h</i>     </div>     </div>`)[0];
+                popup_6e1e11c2d5f104f84ffbad9796b149d6.setContent(html_5157ce9c570843e52e3d6d4b05ff3cd2);
+            
+        
+
+        circle_marker_eaaefaacd61d677995c07d2d0c165813.bindPopup(popup_6e1e11c2d5f104f84ffbad9796b149d6)
+        ;
+
+        
+    
+    
+            circle_marker_eaaefaacd61d677995c07d2d0c165813.bindTooltip(
+                `<div>
+                     Quai des Tuileries SE-NO (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d6cd592b471d06ef19fb2de60172c70d = L.circleMarker(
+                [48.85735, 2.35211],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_5db79aa6e0f4e50b1d549989ffef9006 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5912638499a309c239db0900634811e4 = $(`<div id="html_5912638499a309c239db0900634811e4" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Totem 64 Rue de Rivoli E-O</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.75<br>         <br>         <i>Moyenne Semaine : 219 vélos/h</i><br>         <i>Moyenne Weekend : 164 vélos/h</i>     </div>     </div>`)[0];
+                popup_5db79aa6e0f4e50b1d549989ffef9006.setContent(html_5912638499a309c239db0900634811e4);
+            
+        
+
+        circle_marker_d6cd592b471d06ef19fb2de60172c70d.bindPopup(popup_5db79aa6e0f4e50b1d549989ffef9006)
+        ;
+
+        
+    
+    
+            circle_marker_d6cd592b471d06ef19fb2de60172c70d.bindTooltip(
+                `<div>
+                     Totem 64 Rue de Rivoli E-O (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_aa5297626f7ca7b84c1276a819334752 = L.circleMarker(
+                [48.85735, 2.35211],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_8385916ce4da747549959ffe27fa845e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_04bb2faf51b72c2866ba574fa7be6b78 = $(`<div id="html_04bb2faf51b72c2866ba574fa7be6b78" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Totem 64 Rue de Rivoli O-E</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.79<br>         <br>         <i>Moyenne Semaine : 261 vélos/h</i><br>         <i>Moyenne Weekend : 206 vélos/h</i>     </div>     </div>`)[0];
+                popup_8385916ce4da747549959ffe27fa845e.setContent(html_04bb2faf51b72c2866ba574fa7be6b78);
+            
+        
+
+        circle_marker_aa5297626f7ca7b84c1276a819334752.bindPopup(popup_8385916ce4da747549959ffe27fa845e)
+        ;
+
+        
+    
+    
+            circle_marker_aa5297626f7ca7b84c1276a819334752.bindTooltip(
+                `<div>
+                     Totem 64 Rue de Rivoli O-E (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2fcb91a4e402cac12dbcb3516c3c5aa8 = L.circleMarker(
+                [48.86377, 2.35096],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_e8dcf0d70d79f1259133315f2353b7b7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f6f456788c59db2338d5ae008a39e0cd = $(`<div id="html_f6f456788c59db2338d5ae008a39e0cd" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Totem 73 boulevard de Sébastopol N-S</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.73<br>         <br>         <i>Moyenne Semaine : 264 vélos/h</i><br>         <i>Moyenne Weekend : 194 vélos/h</i>     </div>     </div>`)[0];
+                popup_e8dcf0d70d79f1259133315f2353b7b7.setContent(html_f6f456788c59db2338d5ae008a39e0cd);
+            
+        
+
+        circle_marker_2fcb91a4e402cac12dbcb3516c3c5aa8.bindPopup(popup_e8dcf0d70d79f1259133315f2353b7b7)
+        ;
+
+        
+    
+    
+            circle_marker_2fcb91a4e402cac12dbcb3516c3c5aa8.bindTooltip(
+                `<div>
+                     Totem 73 boulevard de Sébastopol N-S (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_625040bc0ef63b1add839485e722588a = L.circleMarker(
+                [48.86377, 2.35096],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_13bc2da73bc23bac69c3ac8b609b77b6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9479a5b51cee48fb4118baf84e9f85da = $(`<div id="html_9479a5b51cee48fb4118baf84e9f85da" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Totem 73 boulevard de Sébastopol S-N</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.74<br>         <br>         <i>Moyenne Semaine : 388 vélos/h</i><br>         <i>Moyenne Weekend : 286 vélos/h</i>     </div>     </div>`)[0];
+                popup_13bc2da73bc23bac69c3ac8b609b77b6.setContent(html_9479a5b51cee48fb4118baf84e9f85da);
+            
+        
+
+        circle_marker_625040bc0ef63b1add839485e722588a.bindPopup(popup_13bc2da73bc23bac69c3ac8b609b77b6)
+        ;
+
+        
+    
+    
+            circle_marker_625040bc0ef63b1add839485e722588a.bindTooltip(
+                `<div>
+                     Totem 73 boulevard de Sébastopol S-N (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e59d268a1a2fca84faae44e9fc7e8e28 = L.circleMarker(
+                [48.84201, 2.36729],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_a5a264d1cb5c240f8763083fb4a8b0f3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9f807fea0cac4af60a9f0c08f0d7aa06 = $(`<div id="html_9f807fea0cac4af60a9f0c08f0d7aa06" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Totem 85 quai d'Austerlitz NO-SE</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.63<br>         <br>         <i>Moyenne Semaine : 101 vélos/h</i><br>         <i>Moyenne Weekend : 64 vélos/h</i>     </div>     </div>`)[0];
+                popup_a5a264d1cb5c240f8763083fb4a8b0f3.setContent(html_9f807fea0cac4af60a9f0c08f0d7aa06);
+            
+        
+
+        circle_marker_e59d268a1a2fca84faae44e9fc7e8e28.bindPopup(popup_a5a264d1cb5c240f8763083fb4a8b0f3)
+        ;
+
+        
+    
+    
+            circle_marker_e59d268a1a2fca84faae44e9fc7e8e28.bindTooltip(
+                `<div>
+                     Totem 85 quai d'Austerlitz NO-SE (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0a4b4b43bee09543c80bc57ecf0ade16 = L.circleMarker(
+                [48.84201, 2.36729],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_b381274d6a8caadab897dbb48c51d97d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6e8502f10d66be91982381cafc97f9ce = $(`<div id="html_6e8502f10d66be91982381cafc97f9ce" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Totem 85 quai d'Austerlitz SE-NO</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.64<br>         <br>         <i>Moyenne Semaine : 142 vélos/h</i><br>         <i>Moyenne Weekend : 91 vélos/h</i>     </div>     </div>`)[0];
+                popup_b381274d6a8caadab897dbb48c51d97d.setContent(html_6e8502f10d66be91982381cafc97f9ce);
+            
+        
+
+        circle_marker_0a4b4b43bee09543c80bc57ecf0ade16.bindPopup(popup_b381274d6a8caadab897dbb48c51d97d)
+        ;
+
+        
+    
+    
+            circle_marker_0a4b4b43bee09543c80bc57ecf0ade16.bindTooltip(
+                `<div>
+                     Totem 85 quai d'Austerlitz SE-NO (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4640f7d9d56c1122c6550d3937e9ae57 = L.circleMarker(
+                [48.86462, 2.31444],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_5a4965b53410b0058e320021998943d2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_696fa4e31aa313f8e616acebb220cb2f = $(`<div id="html_696fa4e31aa313f8e616acebb220cb2f" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Totem Cours la Reine E-O</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.59<br>         <br>         <i>Moyenne Semaine : 39 vélos/h</i><br>         <i>Moyenne Weekend : 23 vélos/h</i>     </div>     </div>`)[0];
+                popup_5a4965b53410b0058e320021998943d2.setContent(html_696fa4e31aa313f8e616acebb220cb2f);
+            
+        
+
+        circle_marker_4640f7d9d56c1122c6550d3937e9ae57.bindPopup(popup_5a4965b53410b0058e320021998943d2)
+        ;
+
+        
+    
+    
+            circle_marker_4640f7d9d56c1122c6550d3937e9ae57.bindTooltip(
+                `<div>
+                     Totem Cours la Reine E-O (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f64e5fcd50795926af7a59880302acf0 = L.circleMarker(
+                [48.86462, 2.31444],
+                {"bubblingMouseEvents": true, "color": "#0984e3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0984e3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_371eb8821d1dcfbaf4c95cbf1c8bdb26 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_76d9a6204094476bb4232c62f32ce818 = $(`<div id="html_76d9a6204094476bb4232c62f32ce818" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Totem Cours la Reine O-E</h4>         <hr>         <b>Type :</b> <span style="color:#0984e3; font-weight:bold;">Mixte</span><br>         <b>Indice Loisirs :</b> 0.74<br>         <br>         <i>Moyenne Semaine : 111 vélos/h</i><br>         <i>Moyenne Weekend : 82 vélos/h</i>     </div>     </div>`)[0];
+                popup_371eb8821d1dcfbaf4c95cbf1c8bdb26.setContent(html_76d9a6204094476bb4232c62f32ce818);
+            
+        
+
+        circle_marker_f64e5fcd50795926af7a59880302acf0.bindPopup(popup_371eb8821d1dcfbaf4c95cbf1c8bdb26)
+        ;
+
+        
+    
+    
+            circle_marker_f64e5fcd50795926af7a59880302acf0.bindTooltip(
+                `<div>
+                     Totem Cours la Reine O-E (Mixte)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dc2939bd2aa5850cde71f9087e59466d = L.circleMarker(
+                [48.84837, 2.27596],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_c642d3e78b97b8447744cc6debbbf2e5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aaeba2a7ad7eca377c7dbe5ff12cf292 = $(`<div id="html_aaeba2a7ad7eca377c7dbe5ff12cf292" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Voie Georges Pompidou NE-SO</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.50<br>         <br>         <i>Moyenne Semaine : 55 vélos/h</i><br>         <i>Moyenne Weekend : 27 vélos/h</i>     </div>     </div>`)[0];
+                popup_c642d3e78b97b8447744cc6debbbf2e5.setContent(html_aaeba2a7ad7eca377c7dbe5ff12cf292);
+            
+        
+
+        circle_marker_dc2939bd2aa5850cde71f9087e59466d.bindPopup(popup_c642d3e78b97b8447744cc6debbbf2e5)
+        ;
+
+        
+    
+    
+            circle_marker_dc2939bd2aa5850cde71f9087e59466d.bindTooltip(
+                `<div>
+                     Voie Georges Pompidou NE-SO (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b21a06aa00d88fde93b7ee76dd45bac9 = L.circleMarker(
+                [48.84837, 2.27596],
+                {"bubblingMouseEvents": true, "color": "#d63031", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d63031", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_3b8e87f51b35a143877e0a6503c18532);
+        
+    
+        var popup_1cea8852bdd5bf82524c6c1aa2cfc2af = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1dea9ad4f7cdbbdbfdcc3914acddf86d = $(`<div id="html_1dea9ad4f7cdbbdbfdcc3914acddf86d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 200px;">         <h4>Voie Georges Pompidou SO-NE</h4>         <hr>         <b>Type :</b> <span style="color:#d63031; font-weight:bold;">Vélotaf</span><br>         <b>Indice Loisirs :</b> 0.57<br>         <br>         <i>Moyenne Semaine : 101 vélos/h</i><br>         <i>Moyenne Weekend : 58 vélos/h</i>     </div>     </div>`)[0];
+                popup_1cea8852bdd5bf82524c6c1aa2cfc2af.setContent(html_1dea9ad4f7cdbbdbfdcc3914acddf86d);
+            
+        
+
+        circle_marker_b21a06aa00d88fde93b7ee76dd45bac9.bindPopup(popup_1cea8852bdd5bf82524c6c1aa2cfc2af)
+        ;
+
+        
+    
+    
+            circle_marker_b21a06aa00d88fde93b7ee76dd45bac9.bindTooltip(
+                `<div>
+                     Voie Georges Pompidou SO-NE (Vélotaf)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

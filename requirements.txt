@@ -1,0 +1,23 @@
+# Requirements pour l'analyse des données de comptage vélo à Paris
+# Généré automatiquement à partir du notebook analyse_clean.ipynb
+
+# Analyse de données et manipulation
+pandas>=2.0.0
+numpy>=1.20.0
+
+# Visualisation
+matplotlib>=3.5.0
+seaborn>=0.11.0
+
+# Machine Learning et clustering
+scikit-learn>=1.0.0
+
+# Cartographie interactive
+folium>=0.14.0
+
+# Environnement Jupyter (optionnel pour exécuter le notebook)
+jupyter>=1.0.0
+ipykernel>=6.0.0
+
+# Export HTML (optionnel)
+nbconvert>=7.0.0

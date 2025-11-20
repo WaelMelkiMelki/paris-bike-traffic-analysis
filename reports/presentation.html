@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse de la Mobilité Cycliste à Paris</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            --secondary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            --accent-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            --dark-gradient: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            --surface: rgba(255, 255, 255, 0.95);
+            --surface-alt: rgba(248, 250, 252, 0.98);
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --border: rgba(148, 163, 184, 0.2);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--primary-gradient);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-weight: 400;
+            min-height: 100vh;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 2rem;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            max-width: 1400px;
+            min-height: 90vh;
+            max-height: none;
+            background: var(--surface);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-2xl);
+            padding: 4rem 5rem;
+            position: relative;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+            opacity: 0.8;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            animation: slideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(32px) scale(0.96);
+                filter: blur(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        .slide-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .slide-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+
+        .slide-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--text-primary);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+
+        .slide-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        .slide-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            padding-bottom: 6rem;
+        }
+
+        .slide-content h2 {
+            color: var(--text-primary);
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+        }
+
+        .slide-content h2::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+
+        .slide-content h3 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            letter-spacing: -0.01em;
+        }
+
+        .slide-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .slide-content li {
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+            font-size: 1.125rem;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .slide-content li:hover {
+            transform: translateX(4px);
+        }
+
+        .slide-content li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.75rem;
+            width: 16px;
+            height: 16px;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            box-shadow: var(--shadow-md);
+            transform: translateY(-50%);
+        }
+
+        .slide-content li::after {
+            content: "✓";
+            position: absolute;
+            left: 4px;
+            top: 0.75rem;
+            color: white;
+            font-size: 10px;
+            font-weight: 600;
+            transform: translateY(-50%);
+        }
+
+        .highlight {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .stat-box {
+            background: var(--surface-alt);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 500;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .stat-box:hover::before {
+            left: 100%;
+        }
+
+        .stat-number {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            display: block;
+            margin: 1rem 0;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .method-card {
+            background: var(--surface-alt);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .method-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .method-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-2xl);
+            border-color: transparent;
+        }
+
+        .method-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .method-card h3 {
+            color: var(--text-primary);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .method-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .navigation {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            background: var(--surface-alt);
+            backdrop-filter: blur(20px);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .nav-btn {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-btn:hover::before {
+            left: 100%;
+        }
+
+        .nav-btn:active {
+            transform: translateY(0);
+        }
+
+        .nav-btn:disabled {
+            background: var(--text-muted);
+            cursor: not-allowed;
+            box-shadow: var(--shadow-sm);
+            opacity: 0.5;
+        }
+
+        .nav-btn:disabled:hover {
+            transform: none;
+        }
+
+        .slide-number {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--surface);
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .conclusion-text {
+            font-size: 1.5rem;
+            text-align: center;
+            color: var(--text-primary);
+            font-weight: 600;
+            padding: 2.5rem;
+            background: var(--surface-alt);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conclusion-text::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 2px;
+            background: var(--primary-gradient);
+            border-radius: inherit;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            -webkit-mask-composite: xor;
+        }
+
+        .key-findings {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .finding-card {
+            background: var(--surface-alt);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .finding-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-gradient);
+        }
+
+        .finding-card:nth-child(2)::before {
+            background: var(--secondary-gradient);
+        }
+
+        .finding-card:nth-child(3)::before {
+            background: var(--warning-gradient);
+        }
+
+        .finding-card:nth-child(4)::before {
+            background: var(--primary-gradient);
+        }
+
+        .finding-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .finding-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .finding-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            margin-right: 1rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        /* Animations d’entrée pour les éléments */
+        .slide-content > * {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .slide-content > *:nth-child(1) { animation-delay: 0.1s; }
+        .slide-content > *:nth-child(2) { animation-delay: 0.2s; }
+        .slide-content > *:nth-child(3) { animation-delay: 0.3s; }
+        .slide-content > *:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design Amélioré */
+        @media (max-width: 1024px) {
+            .slide {
+                padding: 3rem;
+                min-height: 95vh;
+            }
+            
+            .slide-title {
+                font-size: clamp(2rem, 4vw, 2.5rem);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .presentation-container {
+                padding: 1rem;
+            }
+            
+            .slide {
+                padding: 2rem 1.5rem;
+                min-height: 90vh;
+            }
+
+            .slide-title {
+                font-size: clamp(1.75rem, 5vw, 2.25rem);
+            }
+
+            .slide-content {
+                font-size: 1rem;
+                padding-bottom: 7rem;
+            }
+
+            .methodology-grid,
+            .key-findings {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .navigation {
+                bottom: 1rem;
+                padding: 0.75rem 1.5rem;
+                gap: 1rem;
+            }
+
+            .nav-btn {
+                padding: 0.625rem 1.25rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slide {
+                padding: 1.5rem 1rem;
+            }
+
+            .slide-header::after {
+                width: 80px;
+            }
+
+            .stat-number {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+
+            .method-card,
+            .finding-card {
+                padding: 1.5rem;
+            }
+
+            .slide-content {
+                padding-bottom: 8rem;
+            }
+        }
+
+        /* Accessibilité */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus visible pour l’accessibilité */
+        .nav-btn:focus-visible {
+            outline: 2px solid var(--text-primary);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 1: Contexte & Objectif -->
+        <div class="slide active">
+            <div class="slide-header">
+                <h1 class="slide-title">🚴 Analyse de la Mobilité Cycliste à Paris</h1>
+                <p class="slide-subtitle">Contexte & Objectif</p>
+            </div>
+            <div class="slide-content">
+                <h2>Problématique</h2>
+                <p style="font-size: 1.4em; margin-bottom: 30px;">
+                    <span class="highlight">Analyser la mobilité cycliste à Paris : utilitaire ou loisirs ?</span>
+                </p>
+                
+                <ul>
+                    <li><strong>Source des données :</strong> OpenData Paris - Compteurs vélos (relevés horaires)</li>
+                    <li><strong>Période analysée :</strong> Une année complète pour capturer toutes les saisonnalités</li>
+                    <li><strong>Objectif :</strong> Comprendre les comportements de mobilité et distinguer le "Vélotaf" (domicile-travail) des usages loisirs</li>
+                    <li><strong>Enjeu :</strong> Identifier les typologies d'axes cyclables pour orienter les politiques d'aménagement urbain</li>
+                </ul>
+
+                <div class="stat-box">
+                    <span class="icon">🎯</span>
+                    Question centrale : <span class="stat-number">Vélotaf ou Loisirs ?</span>
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)" disabled>← Précédent</button>
+                <span class="slide-number"><span id="currentSlide">1</span> / 5</span>
+                <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Suivant →</button>
+            </div>
+        </div>
+
+        <!-- Slide 2: Méthodologie -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1 class="slide-title">🔬 Méthodologie</h1>
+                <p class="slide-subtitle">Approche Analytique</p>
+            </div>
+            <div class="slide-content">
+                <h2>Démarche Scientifique</h2>
+                
+                <div class="methodology-grid">
+                    <div class="method-card">
+                        <h3>📊 1. Nettoyage</h3>
+                        <p>Suppression des colonnes non pertinentes, gestion des valeurs manquantes, et filtrage sur une année complète</p>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h3>🧮 2. Feature Engineering</h3>
+                        <p>Création de l'<strong>Indice Loisirs</strong> : Ratio Weekend/Semaine pour caractériser le profil de chaque compteur</p>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h3>🎯 3. Clustering K-Means</h3>
+                        <p>Segmentation automatique des compteurs en 3 groupes : Vélotaf, Mixte, et Loisirs</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <h3 style="color: #667eea; margin-bottom: 20px;">📈 Variables Créées</h3>
+                    <ul>
+                        <li><strong>Heure, Mois, Jour de la semaine</strong> : Variables temporelles</li>
+                        <li><strong>est_weekend</strong> : Indicateur binaire (Samedi/Dimanche)</li>
+                        <li><strong>est_hiver</strong> : Période Nov-Mars (résistance au froid)</li>
+                        <li><strong>Indice Loisirs</strong> : Moyenne_Weekend / Moyenne_Semaine</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Précédent</button>
+                <span class="slide-number"><span id="currentSlide">2</span> / 5</span>
+                <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Suivant →</button>
+            </div>
+        </div>
+
+        <!-- Slide 3: Résultats Clés -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1 class="slide-title">🎉 Résultats Clés</h1>
+                <p class="slide-subtitle">Paris, Ville de Vélotaf</p>
+            </div>
+            <div class="slide-content">
+                <div class="stat-box">
+                    <span class="icon">🚴‍♂️</span>
+                    Paris est une ville de "Vélotaf" à 
+                    <span class="stat-number">95%</span>
+                </div>
+
+                <div class="key-findings">
+                    <div class="finding-card">
+                        <h3>🟣 Vélotaf (Dominant)</h3>
+                        <p>La grande majorité des compteurs enregistrent un trafic plus intense en semaine qu'en week-end. Le vélo est un mode de transport utilitaire.</p>
+                    </div>
+                    
+                    <div class="finding-card">
+                        <h3>🔵 Mixte (Équilibré)</h3>
+                        <p>Quelques axes polyvalents avec un trafic constant semaine et week-end (grandes artères, pistes structurantes).</p>
+                    </div>
+                    
+                    <div class="finding-card">
+                        <h3>🟢 Loisirs (Rare)</h3>
+                        <p>Seulement 3 compteurs sur près de 100 ont un profil "Loisirs" (trafic supérieur le week-end). Profil exceptionnel à Paris.</p>
+                    </div>
+                    
+                    <div class="finding-card">
+                        <h3>🗺️ Cartographie</h3>
+                        <p>Visualisation interactive des 3 profils sur la carte de Paris confirme la dominance du Vélotaf dans tous les arrondissements.</p>
+                        <div style="margin-top: 1rem;">
+                            <a href="carte_typologie_velo_paris.html" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-primary); text-decoration: none; font-weight: 600; padding: 0.75rem 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; transition: all 0.3s ease; font-size: 0.9rem;">
+                                🗺️ Voir la carte interactive
+                                <span style="font-size: 0.8rem; opacity: 0.7;">↗</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="text-align: center; margin-top: 30px; font-size: 1.2em; color: #4a5568;">
+                    <strong>Conclusion intermédiaire :</strong> Le vélo à Paris est <span class="highlight">avant tout un mode de transport quotidien</span>, pas une activité de loisir.
+                </p>
+            </div>
+            <div class="navigation">
+                <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Précédent</button>
+                <span class="slide-number"><span id="currentSlide">3</span> / 5</span>
+                <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Suivant →</button>
+            </div>
+        </div>
+
+        <!-- Slide 4: Modélisation -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1 class="slide-title">🤖 Modélisation Prédictive</h1>
+                <p class="slide-subtitle">Random Forest Regressor</p>
+            </div>
+            <div class="slide-content">
+                <h2>Le trafic cycliste est prédictible</h2>
+
+                <div class="stat-box">
+                    <span class="icon">📊</span>
+                    Score de prédiction : 
+                    <span class="stat-number">R² = 0.87</span>
+                    <p style="font-size: 0.7em; margin-top: 10px;">Nous expliquons 87% des variations du trafic cycliste</p>
+                </div>
+
+                <h3 style="color: #667eea; margin: 30px 0 20px 0;">🔑 Importance des Variables</h3>
+                <div class="methodology-grid">
+                    <div class="method-card" style="border-left-color: #e53e3e;">
+                        <h3 style="color: #e53e3e;">🎯 1. Lieu (~50%)</h3>
+                        <p>L'emplacement du compteur est le facteur déterminant. L'infrastructure (piste cyclable majeure vs petite rue) conditionne le volume.</p>
+                    </div>
+                    
+                    <div class="method-card" style="border-left-color: #dd6b20;">
+                        <h3 style="color: #dd6b20;">⏰ 2. Heure (~35%)</h3>
+                        <p>Le trafic suit un rythme pendulaire strict : pics matin (8h-9h) et soir (18h-19h). Le vélo obéit aux horaires de bureau.</p>
+                    </div>
+                    
+                    <div class="method-card" style="border-left-color: #38a169;">
+                        <h3 style="color: #38a169;">🌤️ 3. Autres (~15%)</h3>
+                        <p>Weekend et Saison ont un impact secondaire. Ils modulent le volume mais ne changent pas la structure fondamentale.</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 30px; font-size: 1.2em; text-align: center; color: #4a5568;">
+                    <strong>Interprétation :</strong> Le trafic cycliste parisien est <span class="highlight">structurel et prévisible</span>, dominé par la géographie et l'horaire.
+                </p>
+            </div>
+            <div class="navigation">
+                <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Précédent</button>
+                <span class="slide-number"><span id="currentSlide">4</span> / 5</span>
+                <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Suivant →</button>
+            </div>
+        </div>
+
+        <!-- Slide 5: Conclusion -->
+        <div class="slide">
+            <div class="slide-header">
+                <h1 class="slide-title">🎯 Conclusion</h1>
+                <p class="slide-subtitle">Synthèse de l'Étude</p>
+            </div>
+            <div class="slide-content">
+                <div class="conclusion-text">
+                    Le vélo à Paris est un <span class="highlight">mode de transport structurel</span>, 
+                    <br>pas une activité anecdotique ou saisonnière
+                </div>
+
+                <h2>🔬 Preuves Scientifiques</h2>
+                <ul>
+                    <li><strong>95% des compteurs</strong> ont un profil "Vélotaf" : le trafic est plus intense en semaine qu'en week-end</li>
+                    <li><strong>L'heure et le lieu</strong> expliquent 85% du volume : le vélo suit les rythmes et trajets domicile-travail</li>
+                    <li><strong>Le modèle prédictif</strong> atteint 87% de précision : le comportement est régulier et modélisable</li>
+                    <li><strong>Les facteurs météo/saisonnalité</strong> sont secondaires : les cyclistes parisiens roulent toute l'année</li>
+                </ul>
+
+                <h2 style="margin-top: 30px;">💡 Implications</h2>
+                <div class="methodology-grid">
+                    <div class="method-card" style="border-left-color: #667eea;">
+                        <h3 style="color: #667eea;">🏙️ Urbanisme</h3>
+                        <p>Prioriser les pistes sur les axes pendulaires identifiés par le clustering</p>
+                    </div>
+                    
+                    <div class="method-card" style="border-left-color: #48bb78;">
+                        <h3 style="color: #48bb78;">📈 Prévision</h3>
+                        <p>Le modèle permet d'anticiper les besoins en infrastructures cyclables</p>
+                    </div>
+                    
+                    <div class="method-card" style="border-left-color: #ed8936;">
+                        <h3 style="color: #ed8936;">🎯 Politique</h3>
+                        <p>Le vélo doit être traité comme un transport du quotidien, pas un loisir</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px; font-size: 1.3em; color: #667eea; font-weight: 700;">
+                    🚴 Merci pour votre attention ! 🚴
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Précédent</button>
+                <span class="slide-number"><span id="currentSlide">5</span> / 5</span>
+                <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)" disabled>Suivant →</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+            
+            // Update slide numbers
+            const slideNumbers = document.querySelectorAll('#currentSlide');
+            slideNumbers.forEach(num => num.textContent = index + 1);
+            
+            // Update button states
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index === slides.length - 1;
+        }
+
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            if (currentSlideIndex < 0) currentSlideIndex = 0;
+            if (currentSlideIndex >= slides.length) currentSlideIndex = slides.length - 1;
+            showSlide(currentSlideIndex);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>
